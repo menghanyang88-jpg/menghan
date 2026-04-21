@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menghan Pages</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17211c;
+      --muted: #5d6a62;
+      --line: #d7ded8;
+      --paper: #f8faf7;
+      --accent: #0f766e;
+      --accent-2: #b45309;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(15, 118, 110, 0.08), transparent 280px),
+        var(--paper);
+    }
+
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 72px 0 56px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+    }
+
+    .mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 7vw, 72px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .lede {
+      max-width: 680px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    section {
+      padding-top: 34px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .label {
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+
+    .value {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    code {
+      padding: 2px 6px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    @media (max-width: 640px) {
+      main {
+        width: min(100% - 24px, 920px);
+        padding-top: 48px;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="mark">M</div>
+      <h1>Menghan Pages</h1>
+      <p class="lede">
+        这是你的个人静态页面发布入口。生成好的 HTML、CSS、图片或 PDF 放入
+        <code>public/</code> 目录后，就可以通过一个稳定的 Web 服务对外访问。
+      </p>
+    </header>
+
+    <section aria-label="site information">
+      <div class="row">
+        <div class="label">当前版本</div>
+        <div class="value">本地 Caddy 风格发布目录，可切换到 VPS、GitHub Pages 或 Cloudflare Pages。</div>
+      </div>
+      <div class="row">
+        <div class="label">发布目录</div>
+        <div class="value"><code>sites/menghan/public</code></div>
+      </div>
+      <div class="row">
+        <div class="label">使用方式</div>
+        <div class="value">把网页文件发布到 <code>public/</code>，访问路径就是对应的文件名。</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
