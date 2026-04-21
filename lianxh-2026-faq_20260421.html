@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>连享会 2026 五一论文班 FAQ</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .qa-answer { transition: all 0.2s ease; }
+  .qa-chevron.open { transform: rotate(180deg); }
+  .filter-btn.active { background-color: #111827 !important; color: white !important; }
+  @media print { .no-print { display: none; } }
+</style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+<header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+  <div class="max-w-4xl mx-auto px-4 py-4">
+    <h1 class="text-2xl font-bold text-gray-900">连享会 2026 五一论文班 FAQ</h1>
+    <p class="text-sm text-gray-500 mt-1">基于微信群“连享会:2026五一论文班”2026-04-15 至 2026-04-21 的聊天记录整理。 共 <span class="font-semibold text-gray-700">51</span> 条常见问题</p>
+  </div>
+</header>
+<main class="max-w-4xl mx-auto px-4 py-6">
+  <div class="bg-white rounded-xl border border-gray-200 p-5 mb-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+      <div class="stat-btn flex items-center gap-2 px-3 py-2 bg-gray-900 rounded-lg cursor-pointer hover:bg-gray-800 transition-colors" onclick="filterCategory('全部')" data-stat="全部">
+        <span class="text-2xl font-bold text-white">51</span>
+        <span class="text-sm text-gray-300">总问题数</span>
+      </div>
+      <div class="stat-btn flex items-center gap-2 px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-lg cursor-pointer transition-colors" onclick="filterCategory('安装配置')" data-stat="安装配置">
+      <span class="text-2xl font-bold">18</span>
+      <span class="text-sm">安装配置</span>
+    </div>
+<div class="stat-btn flex items-center gap-2 px-3 py-2 bg-green-100 hover:bg-green-200 text-green-800 rounded-lg cursor-pointer transition-colors" onclick="filterCategory('工具使用')" data-stat="工具使用">
+      <span class="text-2xl font-bold">9</span>
+      <span class="text-sm">工具使用</span>
+    </div>
+<div class="stat-btn flex items-center gap-2 px-3 py-2 bg-orange-100 hover:bg-orange-200 text-orange-800 rounded-lg cursor-pointer transition-colors" onclick="filterCategory('模型选择')" data-stat="模型选择">
+      <span class="text-2xl font-bold">8</span>
+      <span class="text-sm">模型选择</span>
+    </div>
+<div class="stat-btn flex items-center gap-2 px-3 py-2 bg-purple-100 hover:bg-purple-200 text-purple-800 rounded-lg cursor-pointer transition-colors" onclick="filterCategory('课程安排')" data-stat="课程安排">
+      <span class="text-2xl font-bold">5</span>
+      <span class="text-sm">课程安排</span>
+    </div>
+<div class="stat-btn flex items-center gap-2 px-3 py-2 bg-red-100 hover:bg-red-200 text-red-800 rounded-lg cursor-pointer transition-colors" onclick="filterCategory('账号付费')" data-stat="账号付费">
+      <span class="text-2xl font-bold">4</span>
+      <span class="text-sm">账号付费</span>
+    </div>
+<div class="stat-btn flex items-center gap-2 px-3 py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-800 rounded-lg cursor-pointer transition-colors" onclick="filterCategory('课程资料')" data-stat="课程资料">
+      <span class="text-2xl font-bold">2</span>
+      <span class="text-sm">课程资料</span>
+    </div>
+<div class="stat-btn flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-lg cursor-pointer transition-colors" onclick="filterCategory('网络代理')" data-stat="网络代理">
+      <span class="text-2xl font-bold">2</span>
+      <span class="text-sm">网络代理</span>
+    </div>
+<div class="stat-btn flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-lg cursor-pointer transition-colors" onclick="filterCategory('工具选择')" data-stat="工具选择">
+      <span class="text-2xl font-bold">1</span>
+      <span class="text-sm">工具选择</span>
+    </div>
+<div class="stat-btn flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-lg cursor-pointer transition-colors" onclick="filterCategory('文件处理')" data-stat="文件处理">
+      <span class="text-2xl font-bold">1</span>
+      <span class="text-sm">文件处理</span>
+    </div>
+<div class="stat-btn flex items-center gap-2 px-3 py-2 bg-teal-100 hover:bg-teal-200 text-teal-800 rounded-lg cursor-pointer transition-colors" onclick="filterCategory('硬件配置')" data-stat="硬件配置">
+      <span class="text-2xl font-bold">1</span>
+      <span class="text-sm">硬件配置</span>
+    </div>
+    </div>
+    <div class="border-t border-gray-100 pt-3">
+      <h4 class="text-sm font-medium text-gray-500 mb-2">最热门问题 Top 3</h4>
+      <ol class="list-decimal list-inside space-y-1">
+        <li class="text-sm text-gray-600"><span class="font-medium text-gray-900">[10次]</span> 先导课有回放吗？在哪里看？</li>
+<li class="text-sm text-gray-600"><span class="font-medium text-gray-900">[7次]</span> 只安装 Claude Code 或 opencode 其中一个可以吗？</li>
+<li class="text-sm text-gray-600"><span class="font-medium text-gray-900">[6次]</span> Homebrew 安装很慢、卡住或连不上 GitHub 怎么办？</li>
+      </ol>
+    </div>
+  </div>
+  <div class="no-print mb-6 space-y-3">
+    <div class="relative">
+      <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      </svg>
+      <input type="text" id="searchInput" placeholder="搜索问题、答案或关键词..."
+             class="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+             oninput="filterItems()">
+    </div>
+    <div class="flex flex-wrap gap-2" id="categoryFilters">
+      <button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-900 text-white active" data-cat="全部" onclick="filterCategory('全部')">全部</button>
+      <button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-cat="安装配置" onclick="filterCategory('安装配置')">安装配置 <span class="text-gray-400">(18)</span></button>
+<button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-cat="工具使用" onclick="filterCategory('工具使用')">工具使用 <span class="text-gray-400">(9)</span></button>
+<button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-cat="模型选择" onclick="filterCategory('模型选择')">模型选择 <span class="text-gray-400">(8)</span></button>
+<button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-cat="课程安排" onclick="filterCategory('课程安排')">课程安排 <span class="text-gray-400">(5)</span></button>
+<button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-cat="账号付费" onclick="filterCategory('账号付费')">账号付费 <span class="text-gray-400">(4)</span></button>
+<button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-cat="课程资料" onclick="filterCategory('课程资料')">课程资料 <span class="text-gray-400">(2)</span></button>
+<button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-cat="网络代理" onclick="filterCategory('网络代理')">网络代理 <span class="text-gray-400">(2)</span></button>
+<button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-cat="工具选择" onclick="filterCategory('工具选择')">工具选择 <span class="text-gray-400">(1)</span></button>
+<button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-cat="文件处理" onclick="filterCategory('文件处理')">文件处理 <span class="text-gray-400">(1)</span></button>
+<button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-cat="硬件配置" onclick="filterCategory('硬件配置')">硬件配置 <span class="text-gray-400">(1)</span></button>
+    </div>
+  </div>
+  <div id="qaList">
+    <div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="安装完 miniconda 后，在 powershell 里运行 conda init powershell 报错怎么办？"
+         data-keywords="miniconda conda init powershell anaconda prompt"
+         data-answer="可以先在 anaconda powershell prompt 里执行相关命令。执行后关闭所有终端窗口，再继续后面的安装步骤。
+
+如果 powershell 里出现环境变量相关报错，anaconda prompt 往往可以临时绕过，因为它会自动激活 base 环境。"
+         data-frequency="3">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q001</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问3次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">安装完 Miniconda 后，在 PowerShell 里运行 conda init powershell 报错怎么办？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>可以先在 Anaconda PowerShell Prompt 里执行相关命令。执行后关闭所有终端窗口，再继续后面的安装步骤。</p>
+<p class="mt-2">如果 PowerShell 里出现环境变量相关报错，Anaconda Prompt 往往可以临时绕过，因为它会自动激活 base 环境。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15 ~ 2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Miniconda</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">conda init</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">PowerShell</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Anaconda Prompt</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="git 安装界面里应该选哪个选项？"
+         data-keywords="git 安装选项 let git decide"
+         data-answer="遇到 git 安装里的默认编辑器或换行相关选项时，一般保持默认即可。群里提到的 let git decide 这一项可以直接选择。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q002</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Git 安装界面里应该选哪个选项？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>遇到 Git 安装里的默认编辑器或换行相关选项时，一般保持默认即可。群里提到的 Let Git decide 这一项可以直接选择。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Git</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">安装选项</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Let Git decide</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="模型选择"
+         data-question="opencode 里没有 glm-5 free 模型怎么办？"
+         data-keywords="opencode glm-5 free 模型 免费模型 模型轮换"
+         data-answer="免费模型会轮换，每隔一阵可选模型都可能变化。没有 glm-5 free 不代表安装有问题，可以先换其他 free 模型继续操作。
+
+如果只是想先跑通流程，任选一个当前可用的免费模型测试即可。"
+         data-frequency="4">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q003</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">模型选择</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问4次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">opencode 里没有 GLM-5 Free 模型怎么办？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>免费模型会轮换，每隔一阵可选模型都可能变化。没有 GLM-5 Free 不代表安装有问题，可以先换其他 free 模型继续操作。</p>
+<p class="mt-2">如果只是想先跑通流程，任选一个当前可用的免费模型测试即可。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15 ~ 2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">GLM-5</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">free 模型</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">免费模型</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">模型轮换</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="mac 安装 homebrew 后没有出现 next steps 提示，brew doctor 也不显示 ready，怎么办？"
+         data-keywords="mac homebrew brew doctor path zshrc"
+         data-answer="先确认 homebrew 是否已经能继续安装其他工具。如果能继续安装 node、pandoc、opencode 等工具，就可以先往后走。
+
+如果路径没有生效，可以运行类似 `echo &#039;export path=&quot;/usr/local/sbin:$path&quot;&#039; &gt;&gt; ~/.zshrc` 的命令，然后重新打开终端。apple silicon 机器也要注意 homebrew 的实际安装路径可能不同。"
+         data-frequency="3">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q004</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问3次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Mac 安装 Homebrew 后没有出现 Next steps 提示，brew doctor 也不显示 ready，怎么办？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>先确认 Homebrew 是否已经能继续安装其他工具。如果能继续安装 node、pandoc、opencode 等工具，就可以先往后走。</p>
+<p class="mt-2">如果路径没有生效，可以运行类似 `echo &#039;export PATH=&quot;/usr/local/sbin:$PATH&quot;&#039; &gt;&gt; ~/.zshrc` 的命令，然后重新打开终端。Apple Silicon 机器也要注意 Homebrew 的实际安装路径可能不同。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Mac</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Homebrew</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">brew doctor</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">PATH</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">zshrc</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="homebrew 安装很慢、卡住或连不上 github 怎么办？"
+         data-keywords="homebrew 清华源 github 代理 tun"
+         data-answer="homebrew 默认会连接 github，国内网络下可能很慢或没有反应。可以等待一会儿；如果还是不动，就换清华源。
+
+如果有代理，也可以先开启全局模式或 tun 模式再试。换源后建议重新打开一个终端，再执行安装命令。"
+         data-frequency="6">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q005</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问6次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Homebrew 安装很慢、卡住或连不上 GitHub 怎么办？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>Homebrew 默认会连接 GitHub，国内网络下可能很慢或没有反应。可以等待一会儿；如果还是不动，就换清华源。</p>
+<p class="mt-2">如果有代理，也可以先开启全局模式或 TUN 模式再试。换源后建议重新打开一个终端，再执行安装命令。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15 ~ 2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Homebrew</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">清华源</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">GitHub</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">代理</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">TUN</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="教程里的 homebrew 安装命令复制后报错，可能是什么原因？"
+         data-keywords="homebrew 安装命令 curl 复制格式"
+         data-answer="可能是复制过程中命令里的字符格式出了问题。可以重新复制标准命令再试：
+
+`/bin/bash -c &quot;$(curl -fssl https://raw.githubusercontent.com/homebrew/install/head/install.sh)&quot;`
+
+如果仍然连不上，优先考虑网络或源的问题。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q006</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">教程里的 Homebrew 安装命令复制后报错，可能是什么原因？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>可能是复制过程中命令里的字符格式出了问题。可以重新复制标准命令再试：</p>
+<p class="mt-2">`/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;`</p>
+<p class="mt-2">如果仍然连不上，优先考虑网络或源的问题。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15 ~ 2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Homebrew</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">安装命令</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">curl</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">复制格式</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="如何确认 homebrew 是否已经切到清华源？"
+         data-keywords="homebrew 清华源 brew config brew update"
+         data-answer="可以检查环境变量和 brew 的远程仓库地址。例如查看 `homebrew_brew_git_remote`、`homebrew_core_git_remote`、`homebrew_api_domain`、`homebrew_bottle_domain` 是否指向 `mirrors.tuna.tsinghua.edu.cn`。
+
+也可以运行 `brew config` 或 `brew update --verbose`，观察输出里的 url 是否为清华源。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q007</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">如何确认 Homebrew 是否已经切到清华源？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>可以检查环境变量和 brew 的远程仓库地址。例如查看 `HOMEBREW_BREW_GIT_REMOTE`、`HOMEBREW_CORE_GIT_REMOTE`、`HOMEBREW_API_DOMAIN`、`HOMEBREW_BOTTLE_DOMAIN` 是否指向 `mirrors.tuna.tsinghua.edu.cn`。</p>
+<p class="mt-2">也可以运行 `brew config` 或 `brew update --verbose`，观察输出里的 URL 是否为清华源。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Homebrew</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">清华源</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">brew config</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">brew update</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="mac 上安装 node、pandoc、opencode 很慢，可以分开安装吗？"
+         data-keywords="mac node pandoc opencode brew install"
+         data-answer="可以。node、pandoc、opencode 都不小，放在一条命令里失败后容易从头开始。可以分别执行：
+
+`brew install node`
+
+`brew install pandoc`
+
+`brew install anomalyco/tap/opencode`
+
+node 和 pandoc 也可以去官网手动下载安装。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q008</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Mac 上安装 node、pandoc、opencode 很慢，可以分开安装吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>可以。node、pandoc、opencode 都不小，放在一条命令里失败后容易从头开始。可以分别执行：</p>
+<p class="mt-2">`brew install node`</p>
+<p class="mt-2">`brew install pandoc`</p>
+<p class="mt-2">`brew install anomalyco/tap/opencode`</p>
+<p class="mt-2">node 和 pandoc 也可以去官网手动下载安装。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Mac</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">node</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">pandoc</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">brew install</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="powershell 里粘贴不了，control+v 没反应怎么办？"
+         data-keywords="powershell control+v windows terminal 粘贴"
+         data-answer="这通常是 powershell 版本较旧导致的。可以安装 windows terminal，用它替换旧版 powershell。
+
+安装后，在 windows terminal 或 vs code 终端里继续运行后续命令。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q009</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">PowerShell 里粘贴不了，Control+V 没反应怎么办？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>这通常是 PowerShell 版本较旧导致的。可以安装 Windows Terminal，用它替换旧版 PowerShell。</p>
+<p class="mt-2">安装后，在 Windows Terminal 或 VS Code 终端里继续运行后续命令。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">PowerShell</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Control+V</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Windows Terminal</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">粘贴</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="powershell 在哪里打开？"
+         data-keywords="powershell windows 搜索框 终端"
+         data-answer="在 windows 底部菜单或搜索框里输入 powershell，打开即可。后续安装 opencode、claude code 或执行修复命令，都可以在 powershell 里完成。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q010</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">PowerShell 在哪里打开？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>在 Windows 底部菜单或搜索框里输入 PowerShell，打开即可。后续安装 opencode、Claude Code 或执行修复命令，都可以在 PowerShell 里完成。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">PowerShell</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Windows</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">搜索框</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">终端</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="powershell 命令把 remotesigned 和 -scope 连在一起导致报错怎么办？"
+         data-keywords="powershell remotesigned scope 执行策略"
+         data-answer="这是命令粘贴格式问题。正确写法是：
+
+`set-executionpolicy remotesigned -scope currentuser`
+
+`remotesigned` 和 `-scope` 之间要有空格。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q011</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">PowerShell 命令把 RemoteSigned 和 -Scope 连在一起导致报错怎么办？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>这是命令粘贴格式问题。正确写法是：</p>
+<p class="mt-2">`Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`</p>
+<p class="mt-2">`RemoteSigned` 和 `-Scope` 之间要有空格。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-20</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">PowerShell</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">RemoteSigned</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Scope</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">执行策略</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="工具选择"
+         data-question="只安装 claude code 或 opencode 其中一个可以吗？"
+         data-keywords="claude code opencode codex 工具选择"
+         data-answer="可以。已经配置好 claude code 的同学，不一定还要再按教程配置 opencode；已经能顺畅使用 opencode 或 codex 的同学，也可以根据自己的账户和网络情况选择最稳定的工具。
+
+课程里的很多操作和交互原则在 claude code、opencode、codex 之间是相通的。"
+         data-frequency="7">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q012</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">工具选择</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问7次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">只安装 Claude Code 或 opencode 其中一个可以吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>可以。已经配置好 Claude Code 的同学，不一定还要再按教程配置 opencode；已经能顺畅使用 opencode 或 Codex 的同学，也可以根据自己的账户和网络情况选择最稳定的工具。</p>
+<p class="mt-2">课程里的很多操作和交互原则在 Claude Code、opencode、Codex 之间是相通的。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15 ~ 2026-04-20</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Codex</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">工具选择</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="账号付费"
+         data-question="已经有 codex 会员了，还需要申请 claude 账号吗？"
+         data-keywords="codex claude chatgpt plus 会员"
+         data-answer="如果 codex 已经可以顺畅使用，可以直接用 codex。是否再申请 claude，主要看个人账户、网络和课程跟练需求。
+
+上课演示可能以 claude code 为主，但核心操作思路可以迁移到 codex 和 opencode。"
+         data-frequency="3">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q013</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">账号付费</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问3次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">已经有 Codex 会员了，还需要申请 Claude 账号吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>如果 Codex 已经可以顺畅使用，可以直接用 Codex。是否再申请 Claude，主要看个人账户、网络和课程跟练需求。</p>
+<p class="mt-2">上课演示可能以 Claude Code 为主，但核心操作思路可以迁移到 Codex 和 opencode。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16 ~ 2026-04-18</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Codex</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">ChatGPT Plus</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">会员</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="有 codex 后，安装程序里哪些内容还需要装？"
+         data-keywords="codex opencode 基础工具 git node.js pandoc"
+         data-answer="如果已经能顺畅使用 codex，可以不安装 opencode。但除 opencode 以外的基础工具仍建议安装，例如 git、node.js、python/miniconda、pandoc、vs code 及相关插件。这些工具和文档处理、文件转换、课程练习都有关。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q014</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">有 Codex 后，安装程序里哪些内容还需要装？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>如果已经能顺畅使用 Codex，可以不安装 opencode。但除 opencode 以外的基础工具仍建议安装，例如 Git、Node.js、Python/Miniconda、pandoc、VS Code 及相关插件。这些工具和文档处理、文件转换、课程练习都有关。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-18</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Codex</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">基础工具</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Git</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Node.js</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">pandoc</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="工具使用"
+         data-question="opencode 安装了桌面 app，还需要在终端安装吗？"
+         data-keywords="opencode 桌面版 cli 终端"
+         data-answer="桌面版和终端/cli 版不是一回事。课程演示和很多 skills、agent 工作流更偏向终端或 vs code 里的 cli 使用。
+
+如果只是体验桌面版，可以先用桌面版；如果要跟着课程做完整配置，建议按教程把 cli 也装好。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q015</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">工具使用</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">opencode 安装了桌面 App，还需要在终端安装吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>桌面版和终端/CLI 版不是一回事。课程演示和很多 Skills、Agent 工作流更偏向终端或 VS Code 里的 CLI 使用。</p>
+<p class="mt-2">如果只是体验桌面版，可以先用桌面版；如果要跟着课程做完整配置，建议按教程把 CLI 也装好。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">桌面版</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">CLI</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">终端</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="运行 opencode-ai 提示不是内部或外部命令，应该输入什么？"
+         data-keywords="opencode opencode-ai 命令找不到 cli"
+         data-answer="运行命令是 `opencode`，不是 `opencode-ai`。
+
+如果输入 `opencode` 仍然提示找不到命令，说明 cli 可能没有装好，或者环境变量没有生效，需要回到 powershell 里重新执行安装步骤。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q016</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">运行 opencode-ai 提示不是内部或外部命令，应该输入什么？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>运行命令是 `opencode`，不是 `opencode-ai`。</p>
+<p class="mt-2">如果输入 `opencode` 仍然提示找不到命令，说明 CLI 可能没有装好，或者环境变量没有生效，需要回到 PowerShell 里重新执行安装步骤。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode-ai</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">命令找不到</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">CLI</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="npm install -g opencode-ai 一直转很久，需要等吗？"
+         data-keywords="npm opencode-ai 安装很慢 网络"
+         data-answer="正常情况下不应该长时间卡住。可以先断开并重连 wi-fi，再重新执行；也可以换网络或检查代理。
+
+如果一直失败，可以按课程里的替代方案，用 powershell 执行清理重装命令，或使用 scoop 安装。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q017</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">npm install -g opencode-ai 一直转很久，需要等吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>正常情况下不应该长时间卡住。可以先断开并重连 Wi-Fi，再重新执行；也可以换网络或检查代理。</p>
+<p class="mt-2">如果一直失败，可以按课程里的替代方案，用 PowerShell 执行清理重装命令，或使用 scoop 安装。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15 ~ 2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">npm</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode-ai</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">安装很慢</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">网络</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="工具使用"
+         data-question="opencode 怎么创建 agent？"
+         data-keywords="opencode agent opencode agent create"
+         data-answer="在 powershell 或终端里运行 `opencode agent create`。注意不是进入 opencode 之后再输入，而是在普通终端环境里执行。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q018</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">工具使用</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">opencode 怎么创建 Agent？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>在 PowerShell 或终端里运行 `opencode agent create`。注意不是进入 opencode 之后再输入，而是在普通终端环境里执行。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">agent</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode agent create</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="工具使用"
+         data-question="skills 安装好了，但运行 markitdown 仍提示没有安装，怎么办？"
+         data-keywords="skills markitdown conda 依赖安装"
+         data-answer="第一次运行相关 skill 时，可能还需要安装底层依赖。先确认 conda 已安装并激活，例如命令行开头是否有 `(base)`。
+
+如果依赖安装失败，可以让 opencode 自己继续排查并安装。群里案例中重新删除并安装后恢复正常。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q019</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">工具使用</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Skills 安装好了，但运行 markitdown 仍提示没有安装，怎么办？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>第一次运行相关 Skill 时，可能还需要安装底层依赖。先确认 conda 已安装并激活，例如命令行开头是否有 `(base)`。</p>
+<p class="mt-2">如果依赖安装失败，可以让 opencode 自己继续排查并安装。群里案例中重新删除并安装后恢复正常。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Skills</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">markitdown</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">conda</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">依赖安装</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="课程资料"
+         data-question="粉丝福利 skills 和安装教程里的 skills 是同一批吗？"
+         data-keywords="skills 粉丝福利 安装教程 论文润色"
+         data-answer="是同一类常用 skills。五一正课还会继续讲解并演示一些专门用于论文修改、润色和研究流程的 skills。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q020</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">课程资料</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">粉丝福利 Skills 和安装教程里的 Skills 是同一批吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>是同一类常用 Skills。五一正课还会继续讲解并演示一些专门用于论文修改、润色和研究流程的 Skills。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-19</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Skills</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">粉丝福利</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">安装教程</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">论文润色</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="工具使用"
+         data-question="如果只用 codex，能把 skills 直接安装到 .codex/skills 吗？"
+         data-keywords="codex skills .codex/skills 唯一真相源"
+         data-answer="可以。如果只使用 codex，把 skills 放到 `.codex/skills` 也可以。关键是保持唯一真相源，不要把同一批 skills 分别放在多个目录里维护多个版本。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q021</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">工具使用</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">如果只用 Codex，能把 Skills 直接安装到 .codex/skills 吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>可以。如果只使用 Codex，把 Skills 放到 `.codex/skills` 也可以。关键是保持唯一真相源，不要把同一批 Skills 分别放在多个目录里维护多个版本。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-18</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Codex</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Skills</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">.codex/skills</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">唯一真相源</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="工具使用"
+         data-question="不用 claude code 了，可以删除 .claude 文件夹吗？"
+         data-keywords="claude code .claude 配置文件夹"
+         data-answer="如果确定不用 claude code，可以删除 `.claude` 文件夹。但如果后面还可能使用 claude code，建议先保留，避免误删配置和已有 agent/skills 设置。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q022</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">工具使用</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">不用 Claude Code 了，可以删除 .claude 文件夹吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>如果确定不用 Claude Code，可以删除 `.claude` 文件夹。但如果后面还可能使用 Claude Code，建议先保留，避免误删配置和已有 Agent/Skills 设置。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-18</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">.claude</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">配置文件夹</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="账号付费"
+         data-question="claude 会员能不能接到 opencode 里共用？"
+         data-keywords="claude opencode anthropic opencode zen 封号风险"
+         data-answer="不建议。anthropic 之前明确不鼓励在 opencode、openclaw 等第三方软件里使用 claude 会员额度，可能带来封号风险。
+
+如果有 claude 会员，建议直接使用 claude code；如果想在 opencode 里使用 claude 模型，可以考虑 opencode zen 渠道，按流量计费。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q023</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">账号付费</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Claude 会员能不能接到 opencode 里共用？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>不建议。Anthropic 之前明确不鼓励在 opencode、OpenClaw 等第三方软件里使用 Claude 会员额度，可能带来封号风险。</p>
+<p class="mt-2">如果有 Claude 会员，建议直接使用 Claude Code；如果想在 opencode 里使用 Claude 模型，可以考虑 opencode zen 渠道，按流量计费。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16 ~ 2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Anthropic</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode zen</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">封号风险</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="账号付费"
+         data-question="opencode zen 是什么，适合什么时候用？"
+         data-keywords="opencode zen 按量计费 模型渠道 claude"
+         data-answer="opencode zen 是 opencode 提供的模型渠道，支持多个国内外模型，按量计费。它适合刚开始想试用不同模型、还没决定长期订阅哪一家模型服务的同学。
+
+熟悉后，可以再根据自己的任务和预算订阅固定模型。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q024</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">账号付费</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">opencode zen 是什么，适合什么时候用？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>opencode zen 是 opencode 提供的模型渠道，支持多个国内外模型，按量计费。它适合刚开始想试用不同模型、还没决定长期订阅哪一家模型服务的同学。</p>
+<p class="mt-2">熟悉后，可以再根据自己的任务和预算订阅固定模型。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode zen</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">按量计费</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">模型渠道</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="模型选择"
+         data-question="国内模型推荐哪个？海外模型推荐哪个？"
+         data-keywords="kimi 智谱 claude 模型推荐"
+         data-answer="国内模型可以优先试 kimi 和智谱。海外模型里，claude 在大部分场景里比较可靠，但订阅可能需要国外银行卡，也可能遇到封号或稳定性问题。
+
+最终还是要看账户、网络和具体任务，选择自己最稳定的一套。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q025</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">模型选择</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">国内模型推荐哪个？海外模型推荐哪个？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>国内模型可以优先试 Kimi 和智谱。海外模型里，Claude 在大部分场景里比较可靠，但订阅可能需要国外银行卡，也可能遇到封号或稳定性问题。</p>
+<p class="mt-2">最终还是要看账户、网络和具体任务，选择自己最稳定的一套。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Kimi</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">智谱</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">模型推荐</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="工具使用"
+         data-question="在 vs code 里使用 codex/claude 的 extensions 和终端 cli 有区别吗？"
+         data-keywords="vs code extensions cli codex claude code"
+         data-answer="官方层面差别不大，近期插件版功能也逐渐跟上了。实际使用中，cli 版执行文件操作、调用 skills、处理复杂项目会更稳一些；插件版更方便嵌在编辑器界面里。
+
+如果插件版不稳定，可以直接在 vs code 终端里使用 cli。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q026</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">工具使用</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">在 VS Code 里使用 Codex/Claude 的 Extensions 和终端 CLI 有区别吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>官方层面差别不大，近期插件版功能也逐渐跟上了。实际使用中，CLI 版执行文件操作、调用 Skills、处理复杂项目会更稳一些；插件版更方便嵌在编辑器界面里。</p>
+<p class="mt-2">如果插件版不稳定，可以直接在 VS Code 终端里使用 CLI。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16 ~ 2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">VS Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Extensions</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">CLI</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Codex</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude Code</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="vs code 里打开 claude 连不上，但 claude app 可以用，怎么办？"
+         data-keywords="claude code vs code 代理 settings.json http_proxy"
+         data-answer="可以在 `~/.claude/settings.json` 里配置代理。先在代理软件中找到服务端口号，再让 claude code 或其他 ai 帮你修改 `https_proxy` 和 `http_proxy`。
+
+配置后重新打开一个终端，输入 `claude` 测试。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q027</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">VS Code 里打开 Claude 连不上，但 Claude App 可以用，怎么办？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>可以在 `~/.claude/settings.json` 里配置代理。先在代理软件中找到服务端口号，再让 Claude Code 或其他 AI 帮你修改 `HTTPS_PROXY` 和 `HTTP_PROXY`。</p>
+<p class="mt-2">配置后重新打开一个终端，输入 `claude` 测试。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">VS Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">代理</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">settings.json</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">HTTP_PROXY</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="网络代理"
+         data-question="claude 或相关工具连接不上，科学上网怎么设置？"
+         data-keywords="claude 科学上网 全局模式 tun 系统代理"
+         data-answer="不确定具体模式时，可以先尝试全局模式和 tun 模式。windows 上还要按教程设置系统代理环境变量。
+
+不同地区节点稳定性不一样，群里也有人反馈美国节点更稳定。遇到问题时，把错误信息复制给 ai，让它结合本机配置排查。"
+         data-frequency="5">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q028</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">网络代理</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问5次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Claude 或相关工具连接不上，科学上网怎么设置？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>不确定具体模式时，可以先尝试全局模式和 TUN 模式。Windows 上还要按教程设置系统代理环境变量。</p>
+<p class="mt-2">不同地区节点稳定性不一样，群里也有人反馈美国节点更稳定。遇到问题时，把错误信息复制给 AI，让它结合本机配置排查。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15 ~ 2026-04-20</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">科学上网</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">全局模式</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">TUN</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">系统代理</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="网络代理"
+         data-question="用国内模型时需要开代理吗？"
+         data-keywords="国内模型 kimi 智谱 代理 梯子"
+         data-answer="不一定。使用国内模型时，有时反而是开了代理连不上。遇到 kimi、智谱等国内模型连接问题，可以先尝试关闭代理，再重新运行。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q029</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">网络代理</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">用国内模型时需要开代理吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>不一定。使用国内模型时，有时反而是开了代理连不上。遇到 Kimi、智谱等国内模型连接问题，可以先尝试关闭代理，再重新运行。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">国内模型</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Kimi</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">智谱</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">代理</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">梯子</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="模型选择"
+         data-question="kimi coding plan 支持 opencode 吗？"
+         data-keywords="kimi coding plan opencode invalid request error 模型切换"
+         data-answer="支持。群里反馈老师和不少同学都在 opencode 里使用 kimi coding plan，除了有时比较慢，一般可以正常使用。
+
+如果遇到 invalid request error，可以先换模型、重启网络、重新打开工具，或改用 claude code 接入 kimi 的方案排查。"
+         data-frequency="3">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q030</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">模型选择</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问3次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Kimi Coding Plan 支持 opencode 吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>支持。群里反馈老师和不少同学都在 opencode 里使用 Kimi Coding Plan，除了有时比较慢，一般可以正常使用。</p>
+<p class="mt-2">如果遇到 invalid request error，可以先换模型、重启网络、重新打开工具，或改用 Claude Code 接入 Kimi 的方案排查。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-17 ~ 2026-04-21</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Kimi Coding Plan</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">invalid request error</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">模型切换</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="模型选择"
+         data-question="kimi 模型出现 invalid request error，怎么排查？"
+         data-keywords="kimi invalid request error api key build opencode"
+         data-answer="这个错误不一定是 api key 过期或版本过低，也可能是客户端 build 流程和当前模型存在兼容问题。
+
+可以先换一个更稳定的模型，进入目标文件夹后再启动 opencode，用简单指令测试，不要一开始就走 build。如果简单指令可以运行，问题大概率在模型调用或工作区联动上。"
+         data-frequency="3">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q031</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">模型选择</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问3次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Kimi 模型出现 invalid request error，怎么排查？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>这个错误不一定是 API key 过期或版本过低，也可能是客户端 Build 流程和当前模型存在兼容问题。</p>
+<p class="mt-2">可以先换一个更稳定的模型，进入目标文件夹后再启动 opencode，用简单指令测试，不要一开始就走 Build。如果简单指令可以运行，问题大概率在模型调用或工作区联动上。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Kimi</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">invalid request error</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">API key</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Build</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="账号付费"
+         data-question="kimi 每隔几小时会有额度限制吗？"
+         data-keywords="kimi 额度 coding plan 套餐"
+         data-answer="kimi 可能存在时间窗口内的额度限制。可以登录 kimi 后台查看当前套餐和使用量；如果界面有红色提示，可能是额度用完。
+
+如果没有看到超限提示，也可以等一段时间、重启工具或换模型测试。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q032</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">账号付费</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Kimi 每隔几小时会有额度限制吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>Kimi 可能存在时间窗口内的额度限制。可以登录 Kimi 后台查看当前套餐和使用量；如果界面有红色提示，可能是额度用完。</p>
+<p class="mt-2">如果没有看到超限提示，也可以等一段时间、重启工具或换模型测试。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Kimi</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">额度</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Coding Plan</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">套餐</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="模型选择"
+         data-question="kimi 新模型上线后，coding plan 能自动调用吗？需要重新生成 api 吗？"
+         data-keywords="kimi 新模型 coding plan api"
+         data-answer="一般可以到后台查看模型列表，模型更新后通常会在后台体现。是否需要重新生成 api，要以后台显示为准；正常情况下不一定需要重新生成。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q033</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">模型选择</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Kimi 新模型上线后，Coding Plan 能自动调用吗？需要重新生成 API 吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>一般可以到后台查看模型列表，模型更新后通常会在后台体现。是否需要重新生成 API，要以后台显示为准；正常情况下不一定需要重新生成。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-21</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Kimi</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">新模型</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Coding Plan</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">API</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="模型选择"
+         data-question="claude code 能接入其他家的模型吗，比如 openai？"
+         data-keywords="claude code openai codex mcp 模型切换"
+         data-answer="claude code 本身没有内置根据配置文件自动切换外部模型的功能。可以通过 skill、mcp 或自己写 api 请求去调用其他模型。
+
+如果已经有 openai/chatgpt 会员，直接用 codex 往往更简单。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q034</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">模型选择</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Claude Code 能接入其他家的模型吗，比如 OpenAI？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>Claude Code 本身没有内置根据配置文件自动切换外部模型的功能。可以通过 Skill、MCP 或自己写 API 请求去调用其他模型。</p>
+<p class="mt-2">如果已经有 OpenAI/ChatGPT 会员，直接用 Codex 往往更简单。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-17 ~ 2026-04-18</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">OpenAI</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Codex</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">MCP</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">模型切换</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="模型选择"
+         data-question="能不能在 claude.md 里配置多个模型，让 claude code 自动切换？"
+         data-keywords="claude.md claude code 模型切换 mcp skill"
+         data-answer="claude code 没有内置这种自动切换外部模型的机制。可以通过 skill、mcp 或 api 请求调用其他模型，但不是简单写进 claude.md 就会自动切换。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q035</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">模型选择</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">能不能在 CLAUDE.md 里配置多个模型，让 Claude Code 自动切换？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>Claude Code 没有内置这种自动切换外部模型的机制。可以通过 Skill、MCP 或 API 请求调用其他模型，但不是简单写进 CLAUDE.md 就会自动切换。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">CLAUDE.md</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">模型切换</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">MCP</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Skill</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="工具使用"
+         data-question="opencode 在 vs code 终端里输出很慢，是 vs code 的问题还是模型/网络问题？"
+         data-keywords="opencode vs code glm 响应慢 模型速度"
+         data-answer="更可能是模型或网络问题。glm 等模型有时响应较慢，可以换 kimi、claude 或其他更快的模型测试。
+
+运行慢时不必一直等，可以开新窗口安排其他任务，或者先做别的事情。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q036</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">工具使用</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">opencode 在 VS Code 终端里输出很慢，是 VS Code 的问题还是模型/网络问题？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>更可能是模型或网络问题。GLM 等模型有时响应较慢，可以换 Kimi、Claude 或其他更快的模型测试。</p>
+<p class="mt-2">运行慢时不必一直等，可以开新窗口安排其他任务，或者先做别的事情。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">VS Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">GLM</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">响应慢</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">模型速度</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="工具使用"
+         data-question="在 vs code 终端里用 opencode，页面不能滚动怎么办？"
+         data-keywords="vs code opencode 终端滚动 windows terminal"
+         data-answer="windows 上可以先安装 windows terminal。如果在 vs code 终端里仍无法滚动，而普通 powershell 里没问题，可以先改用 powershell 或 windows terminal，后续再排查 vs code 终端设置。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q037</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">工具使用</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">在 VS Code 终端里用 opencode，页面不能滚动怎么办？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>Windows 上可以先安装 Windows Terminal。如果在 VS Code 终端里仍无法滚动，而普通 PowerShell 里没问题，可以先改用 PowerShell 或 Windows Terminal，后续再排查 VS Code 终端设置。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">VS Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">终端滚动</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Windows Terminal</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="工具使用"
+         data-question="打开 d 盘文件夹后 opencode 自动退出，只能手动复制路径吗？"
+         data-keywords="opencode vs code 打开文件夹 工作区路径 d 盘"
+         data-answer="这不一定是 opencode 的普遍 bug，更可能和本机设置或操作方式有关。可以让 ai 逐项排查 vs code 打开文件夹、工作区路径、终端路径和 opencode 启动方式。
+
+临时方案是进入目标文件夹路径后再启动 opencode，或新建窗口测试。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q038</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">工具使用</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">打开 D 盘文件夹后 opencode 自动退出，只能手动复制路径吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>这不一定是 opencode 的普遍 bug，更可能和本机设置或操作方式有关。可以让 AI 逐项排查 VS Code 打开文件夹、工作区路径、终端路径和 opencode 启动方式。</p>
+<p class="mt-2">临时方案是进入目标文件夹路径后再启动 opencode，或新建窗口测试。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16 ~ 2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">VS Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">打开文件夹</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">工作区路径</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">D 盘</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="文件处理"
+         data-question="pdf 转成 markdown 后看起来像渲染页面，怎么查看源文件？"
+         data-keywords="pdf markdown word 源文件 渲染"
+         data-answer="如果 markdown 已经正常打开并渲染了格式，可以点击右上角的小铅笔图标查看源文件。word 能正常打开，markdown 也能渲染，通常说明转换已经成功。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q039</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">文件处理</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">PDF 转成 Markdown 后看起来像渲染页面，怎么查看源文件？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>如果 Markdown 已经正常打开并渲染了格式，可以点击右上角的小铅笔图标查看源文件。Word 能正常打开，Markdown 也能渲染，通常说明转换已经成功。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">PDF</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Markdown</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Word</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">源文件</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">渲染</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="课程安排"
+         data-question="先导课有回放吗？在哪里看？"
+         data-keywords="先导课 回放 播放器 腾讯会议"
+         data-answer="有回放。回放会传到播放器，上传好后会在群里通知。也可以通过腾讯会议录制链接申请观看，申请时记得备注名字。"
+         data-frequency="10">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q040</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">课程安排</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问10次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">先导课有回放吗？在哪里看？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>有回放。回放会传到播放器，上传好后会在群里通知。也可以通过腾讯会议录制链接申请观看，申请时记得备注名字。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15 ~ 2026-04-21</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">先导课</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">回放</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">播放器</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">腾讯会议</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="课程安排"
+         data-question="晚上先导课几点直播、用什么软件看？"
+         data-keywords="先导课 直播时间 播放器 听课软件"
+         data-answer="先导课在 4 月 15 日晚上 7 点半开始。观看渠道和播放器安装说明会在群里发布，新报名学员也可以查看群文件里的安装说明。"
+         data-frequency="3">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q041</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">课程安排</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问3次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">晚上先导课几点直播、用什么软件看？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>先导课在 4 月 15 日晚上 7 点半开始。观看渠道和播放器安装说明会在群里发布，新报名学员也可以查看群文件里的安装说明。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">先导课</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">直播时间</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">播放器</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">听课软件</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="课程安排"
+         data-question="播放器看不了回放，提示录屏或外接显示器怎么办？"
+         data-keywords="播放器 回放 录屏检测 外接显示器 腾讯会议"
+         data-answer="播放器可能会检测截图、录屏或外接显示设备。mac 上需要按播放器说明关闭相关程序或权限；如果外接显示器不行，建议用平板观看。
+
+如果播放器仍看不了，可以通过腾讯会议录制链接申请观看。"
+         data-frequency="4">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q042</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">课程安排</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问4次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">播放器看不了回放，提示录屏或外接显示器怎么办？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>播放器可能会检测截图、录屏或外接显示设备。Mac 上需要按播放器说明关闭相关程序或权限；如果外接显示器不行，建议用平板观看。</p>
+<p class="mt-2">如果播放器仍看不了，可以通过腾讯会议录制链接申请观看。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">播放器</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">回放</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">录屏检测</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">外接显示器</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">腾讯会议</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="课程资料"
+         data-question="审稿人 agent 的 md 文件在哪里？"
+         data-keywords="审稿人 agent md 文件 提示词 codex claude code"
+         data-answer="群里已分享 `审稿人agent提示词.md`。如果想让 cc/codex 后续都能调用这类 agent，课程后面会讲具体配置方式，先导课最后也有简短演示。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q043</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">课程资料</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">审稿人 Agent 的 md 文件在哪里？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>群里已分享 `审稿人agent提示词.md`。如果想让 CC/Codex 后续都能调用这类 Agent，课程后面会讲具体配置方式，先导课最后也有简短演示。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-15 ~ 2026-04-20</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">审稿人 Agent</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">md 文件</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">提示词</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Codex</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude Code</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="课程安排"
+         data-question="课程正式上课时主要用 opencode 还是 claude code？"
+         data-keywords="正式课 opencode claude code codex 演示工具"
+         data-answer="老师平时多使用 claude code，课程演示会以 claude code 为主，主要是为了直播流畅。但 claude code、opencode、codex 的大部分操作原则相通。
+
+上课时大家选择自己账户和网络最稳定的工具即可，避免中途断掉。"
+         data-frequency="3">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q044</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">课程安排</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问3次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">课程正式上课时主要用 opencode 还是 Claude Code？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>老师平时多使用 Claude Code，课程演示会以 Claude Code 为主，主要是为了直播流畅。但 Claude Code、opencode、Codex 的大部分操作原则相通。</p>
+<p class="mt-2">上课时大家选择自己账户和网络最稳定的工具即可，避免中途断掉。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16 ~ 2026-04-20</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">正式课</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Codex</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">演示工具</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="课程安排"
+         data-question="五月四号的内容都可以用 opencode 实现吗？"
+         data-keywords="五一课程 opencode claude code 模型差异"
+         data-answer="可以。不同工具之间如果效果有差异，主要通常不是 opencode 和 claude code 的差异，而是背后使用的模型不同导致的差异。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q045</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">课程安排</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">五月四号的内容都可以用 opencode 实现吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>可以。不同工具之间如果效果有差异，主要通常不是 opencode 和 Claude Code 的差异，而是背后使用的模型不同导致的差异。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-20</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">五一课程</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">模型差异</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="国外使用苹果电脑，只装 claude code、vs code 插件和基础工具会影响课程吗？"
+         data-keywords="mac 国外网络 claude code vs code miniconda"
+         data-answer="可以按检查清单安装基础工具和 vs code 插件，再用 `brew install --cask claude-code` 安装 claude code。python 已经在 miniconda 中，学校电脑不方便安装 opencode 时，可以先用 claude code 跟课。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q046</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">国外使用苹果电脑，只装 Claude Code、VS Code 插件和基础工具会影响课程吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>可以按检查清单安装基础工具和 VS Code 插件，再用 `brew install --cask claude-code` 安装 Claude Code。Python 已经在 Miniconda 中，学校电脑不方便安装 opencode 时，可以先用 Claude Code 跟课。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Mac</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">国外网络</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">VS Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Miniconda</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="anaconda 已经装了，还需要安装 miniconda 吗？"
+         data-keywords="anaconda miniconda python conda"
+         data-answer="如果电脑里已经有 anaconda，一般不用再装 miniconda。两者功能有重叠，后续重点是保证 python/conda 环境可用。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q047</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Anaconda 已经装了，还需要安装 Miniconda 吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>如果电脑里已经有 Anaconda，一般不用再装 Miniconda。两者功能有重叠，后续重点是保证 Python/conda 环境可用。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Anaconda</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Miniconda</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Python</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">conda</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="anaconda prompt 和 powershell 功能一样吗？可以用 anaconda prompt 吗？"
+         data-keywords="anaconda prompt powershell base 环境 环境变量"
+         data-answer="功能有重叠。某些在 powershell 里因为环境变量出错的步骤，可以在 anaconda prompt 里解决，因为它会自动激活 base 环境。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q048</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Anaconda Prompt 和 PowerShell 功能一样吗？可以用 Anaconda Prompt 吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>功能有重叠。某些在 PowerShell 里因为环境变量出错的步骤，可以在 Anaconda Prompt 里解决，因为它会自动激活 base 环境。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-17</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Anaconda Prompt</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">PowerShell</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">base 环境</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">环境变量</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="安装配置"
+         data-question="git 安装后版本号和教程不一样，比如 windows.2 或 windows.3，是安装失败吗？"
+         data-keywords="git 版本号 windows.2 windows.3 安装成功"
+         data-answer="不是。小版本不同没关系，显示更新的小版本反而说明安装的是更新版本。能正常显示 `git version` 就说明安装成功。"
+         data-frequency="2">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q049</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">安装配置</span> <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问2次</span>
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">Git 安装后版本号和教程不一样，比如 windows.2 或 windows.3，是安装失败吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>不是。小版本不同没关系，显示更新的小版本反而说明安装的是更新版本。能正常显示 `git version` 就说明安装成功。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-16</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Git</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">版本号</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">windows.2</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">windows.3</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">安装成功</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="硬件配置"
+         data-question="想单独买一台笔记本配置 opencode，有什么推荐配置？"
+         data-keywords="笔记本 opencode 内存 32gb 硬件配置"
+         data-answer="优先内存大一点，建议 32gb 以上。模型不是在本地跑的，所以 cpu/gpu 性能不是最关键；内存大可以让多个窗口和工具同时运行时更不卡。
+
+注意内存和硬盘容量不是一回事。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q050</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800">硬件配置</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">想单独买一台笔记本配置 opencode，有什么推荐配置？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>优先内存大一点，建议 32GB 以上。模型不是在本地跑的，所以 CPU/GPU 性能不是最关键；内存大可以让多个窗口和工具同时运行时更不卡。</p>
+<p class="mt-2">注意内存和硬盘容量不是一回事。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-21</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">笔记本</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">opencode</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">内存</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">32GB</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">硬件配置</span></div>
+      </div>
+    </div>
+<div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow"
+         data-category="模型选择"
+         data-question="本地部署 30b 或更高模型接 claude code，能省 token 钱吗？"
+         data-keywords="本地模型 30b 显存 claude code token"
+         data-answer="不太现实。30b 量化模型本身可能就要占 20gb 左右显存，而科研任务常需要 64k 以上上下文，输入上下文还会额外占显存。
+
+真正生产力场景里，30b 本地模型和主流云端强模型差距仍然明显。本地模型适合角色扮演或简单结构化任务，想替代高强度科研写作和代码工作成本很高。"
+         data-frequency="1">
+      <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+        <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">Q051</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">模型选择</span> 
+          </div>
+          <h3 class="text-base font-medium text-gray-900 leading-snug">本地部署 30B 或更高模型接 Claude Code，能省 token 钱吗？</h3>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="qa-answer hidden px-5 pb-4 pl-16">
+        <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed"><p>不太现实。30B 量化模型本身可能就要占 20GB 左右显存，而科研任务常需要 64K 以上上下文，输入上下文还会额外占显存。</p>
+<p class="mt-2">真正生产力场景里，30B 本地模型和主流云端强模型差距仍然明显。本地模型适合角色扮演或简单结构化任务，想替代高强度科研写作和代码工作成本很高。</p></div>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400"><span>来源: 微信群答疑</span><span>·</span><span>2026-04-21</span></div>
+        <div class="mt-2 flex flex-wrap gap-1"><span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">本地模型</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">30B</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">显存</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">Claude Code</span> <span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">token</span></div>
+      </div>
+    </div>
+  </div>
+  <div id="noResults" class="hidden text-center py-12 text-gray-400">
+    <p>没有找到匹配的问题</p>
+  </div>
+</main>
+<footer class="max-w-4xl mx-auto px-4 py-8 text-center text-xs text-gray-400 border-t border-gray-200 mt-8">
+  <p>数据来源：基于微信群“连享会:2026五一论文班”2026-04-15 至 2026-04-21 的聊天记录整理。 | 自动生成于 2026-04-21</p>
+</footer>
+<script>
+let currentCategory = '全部';
+function toggleAnswer(button) {
+  const answer = button.nextElementSibling;
+  const chevron = button.querySelector('.qa-chevron');
+  answer.classList.toggle('hidden');
+  chevron.classList.toggle('open');
+}
+function filterCategory(category) {
+  currentCategory = category;
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    if (btn.dataset.cat === category) {
+      btn.classList.add('active');
+      btn.classList.remove('bg-gray-100', 'text-gray-700');
+    } else {
+      btn.classList.remove('active');
+      if (btn.dataset.cat !== '全部') btn.classList.add('bg-gray-100', 'text-gray-700');
+    }
+  });
+  document.querySelectorAll('.stat-btn').forEach(btn => {
+    btn.classList.toggle('ring-2', btn.dataset.stat === category);
+    btn.classList.toggle('ring-gray-400', btn.dataset.stat === category);
+  });
+  filterItems();
+}
+function filterItems() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const items = document.querySelectorAll('.qa-item');
+  let visible = 0;
+  items.forEach(item => {
+    const matchesCategory = currentCategory === '全部' || item.dataset.category === currentCategory;
+    const searchText = [item.dataset.question, item.dataset.answer, item.dataset.keywords, item.dataset.category].join(' ').toLowerCase();
+    const matchesSearch = !query || searchText.includes(query);
+    const show = matchesCategory && matchesSearch;
+    item.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('noResults').classList.toggle('hidden', visible > 0);
+}
+</script>
+</body>
+</html>
