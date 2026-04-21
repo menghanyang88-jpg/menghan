@@ -1,0 +1,1581 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>课程 FAQ 知识页</title>
+  <style>
+    :root {
+      --ink: #17201a;
+      --muted: #667266;
+      --line: #d9dfd3;
+      --paper: #fbfaf3;
+      --panel: #ffffff;
+      --sage: #9bb49a;
+      --sage-dark: #33513c;
+      --clay: #c76f48;
+      --gold: #d8a342;
+      --blue: #416a8c;
+      --shadow: 0 18px 50px rgba(37, 50, 35, .10);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(23, 32, 26, .035) 1px, transparent 1px) 0 0 / 28px 28px,
+        linear-gradient(rgba(23, 32, 26, .025) 1px, transparent 1px) 0 0 / 28px 28px,
+        var(--paper);
+      font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 42px 0 24px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 250, 243, .82);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--sage-dark);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--clay);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 14px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .icon-btn,
+    .text-btn {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      min-height: 42px;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 22px rgba(37, 50, 35, .06);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .icon-btn {
+      width: 44px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .text-btn {
+      padding: 0 14px;
+      font-weight: 700;
+    }
+
+    .icon-btn:hover,
+    .text-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(37, 50, 35, .10);
+    }
+
+    .icon-btn span {
+      position: absolute;
+      bottom: -34px;
+      right: 0;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: .15s ease;
+      background: var(--ink);
+      color: white;
+      font-size: 12px;
+      padding: 5px 7px;
+      border-radius: 4px;
+    }
+
+    .icon-btn:hover span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .dashboard {
+      padding: 28px 0 54px;
+      display: grid;
+      grid-template-columns: 290px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 196px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, .86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .stats {
+      padding: 16px;
+    }
+
+    .stat-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      background: #fdfcf8;
+    }
+
+    .stat b {
+      display: block;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .controls {
+      padding: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .search {
+      position: relative;
+    }
+
+    .search svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+    }
+
+    input[type="search"],
+    select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fffef9;
+      border-radius: var(--radius);
+      min-height: 42px;
+      color: var(--ink);
+      outline: none;
+    }
+
+    input[type="search"] {
+      padding: 0 12px 0 40px;
+    }
+
+    select {
+      padding: 0 12px;
+    }
+
+    input[type="search"]:focus,
+    select:focus {
+      border-color: var(--sage-dark);
+      box-shadow: 0 0 0 3px rgba(155, 180, 154, .28);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: #fffef9;
+      color: var(--ink);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .chip.active {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .content-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .content-head h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .result-note {
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq {
+      overflow: hidden;
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 34px rgba(37, 50, 35, .075);
+    }
+
+    .faq summary {
+      list-style: none;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      cursor: pointer;
+      transition: background .18s ease;
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq summary:hover {
+      background: rgba(155, 180, 154, .11);
+    }
+
+    .q-no {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      padding-top: 4px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: rgba(65, 106, 140, .12);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .badge.hot {
+      background: rgba(199, 111, 72, .14);
+      color: #8d3d20;
+    }
+
+    .question {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .chev {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      transition: transform .2s ease, background .2s ease;
+      color: var(--sage-dark);
+    }
+
+    details[open] .chev {
+      transform: rotate(180deg);
+      background: rgba(155, 180, 154, .22);
+    }
+
+    .answer {
+      padding: 0 18px 18px 66px;
+      color: #38433a;
+      line-height: 1.85;
+    }
+
+    .answer p {
+      margin: 0 0 10px;
+    }
+
+    .meta {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px dashed var(--line);
+      padding-top: 12px;
+    }
+
+    .keyword {
+      display: inline-flex;
+      padding: 3px 7px;
+      border-radius: 4px;
+      background: #f5f1e6;
+    }
+
+    .empty {
+      display: none;
+      padding: 46px 20px;
+      text-align: center;
+      color: var(--muted);
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .65);
+    }
+
+    .empty.show {
+      display: block;
+    }
+
+    .import-box {
+      display: none;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .import-box.show {
+      display: block;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 160px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      outline: none;
+      background: #fffef9;
+      color: var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .import-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: white;
+      box-shadow: var(--shadow);
+      transform: translateY(12px);
+      opacity: 0;
+      pointer-events: none;
+      transition: .18s ease;
+      z-index: 9;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 820px) {
+      .hero {
+        position: static;
+      }
+
+      .hero-grid,
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .content-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .result-note {
+        white-space: normal;
+      }
+
+      .answer {
+        padding-left: 18px;
+      }
+    }
+
+    @media print {
+      .hero,
+      .sidebar,
+      .import-box {
+        position: static;
+      }
+
+      .actions,
+      .controls,
+      .import-box {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      .dashboard {
+        display: block;
+      }
+
+      .faq {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">FAQ Notebook</div>
+        <h1 id="pageTitle">课程 FAQ 知识页</h1>
+        <p class="subtitle" id="pageSubtitle">把微信群、课程答疑、录音转写整理成一个可以搜索、筛选和展开阅读的静态网页。</p>
+      </div>
+      <div class="actions" aria-label="页面操作">
+        <button class="icon-btn" id="expandAll" aria-label="全部展开">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>全部展开</span>
+        </button>
+        <button class="icon-btn" id="collapseAll" aria-label="全部收起">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>全部收起</span>
+        </button>
+        <button class="icon-btn" id="printPage" aria-label="打印">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 8V4h10v4M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v6H7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span>打印页面</span>
+        </button>
+        <button class="text-btn" id="toggleImport">导入 JSON</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap dashboard">
+    <aside class="sidebar">
+      <section class="panel stats" aria-label="统计概览">
+        <div class="stat-main">
+          <div class="stat">
+            <b id="totalCount">0</b>
+            <span>总问题数</span>
+          </div>
+          <div class="stat">
+            <b id="categoryCount">0</b>
+            <span>分类数</span>
+          </div>
+        </div>
+        <div id="categoryChips" class="chips"></div>
+      </section>
+
+      <section class="panel controls" aria-label="筛选工具">
+        <div class="field">
+          <label for="searchInput">搜索</label>
+          <div class="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="searchInput" type="search" placeholder="搜索问题、答案、关键词">
+          </div>
+        </div>
+        <div class="field">
+          <label for="sortSelect">排序</label>
+          <select id="sortSelect">
+            <option value="default">默认顺序</option>
+            <option value="frequency">高频优先</option>
+            <option value="recent">日期较新优先</option>
+            <option value="category">按分类排列</option>
+          </select>
+        </div>
+      </section>
+    </aside>
+
+    <section>
+      <div class="import-box" id="importBox">
+        <textarea id="jsonInput" spellcheck="false" aria-label="导入 JSON"></textarea>
+        <div class="import-actions">
+          <button class="text-btn" id="loadDemo">恢复示例</button>
+          <button class="text-btn" id="applyJson">应用数据</button>
+        </div>
+      </div>
+
+      <div class="content-head">
+        <h2>问题列表</h2>
+        <div class="result-note" id="resultNote">正在载入...</div>
+      </div>
+      <div id="faqList" class="faq-list"></div>
+      <div id="emptyState" class="empty">没有找到匹配的问题</div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const defaultDataUrl = "lianxh-faq-20260415-20260421.json";
+
+    const demoMeta = {
+          "title": "连享会 2026 五一论文班 FAQ",
+          "subtitle": "基于微信群“连享会:2026五一论文班”2026-04-15 至 2026-04-21 的聊天记录整理。"
+    };
+
+    const demoFaqs = [
+          {
+                "question": "安装完 Miniconda 后，在 PowerShell 里运行 conda init powershell 报错怎么办？",
+                "answer": "可以先在 Anaconda PowerShell Prompt 里执行相关命令。执行后关闭所有终端窗口，再继续后面的安装步骤。\n\n如果 PowerShell 里出现环境变量相关报错，Anaconda Prompt 往往可以临时绕过，因为它会自动激活 base 环境。",
+                "category": "安装配置",
+                "keywords": [
+                      "Miniconda",
+                      "conda init",
+                      "PowerShell",
+                      "Anaconda Prompt"
+                ],
+                "frequency": 3,
+                "source": "微信群答疑",
+                "date": "2026-04-15 ~ 2026-04-17"
+          },
+          {
+                "question": "Git 安装界面里应该选哪个选项？",
+                "answer": "遇到 Git 安装里的默认编辑器或换行相关选项时，一般保持默认即可。群里提到的 Let Git decide 这一项可以直接选择。",
+                "category": "安装配置",
+                "keywords": [
+                      "Git",
+                      "安装选项",
+                      "Let Git decide"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-15"
+          },
+          {
+                "question": "opencode 里没有 GLM-5 Free 模型怎么办？",
+                "answer": "免费模型会轮换，每隔一阵可选模型都可能变化。没有 GLM-5 Free 不代表安装有问题，可以先换其他 free 模型继续操作。\n\n如果只是想先跑通流程，任选一个当前可用的免费模型测试即可。",
+                "category": "模型选择",
+                "keywords": [
+                      "opencode",
+                      "GLM-5",
+                      "free 模型",
+                      "免费模型",
+                      "模型轮换"
+                ],
+                "frequency": 4,
+                "source": "微信群答疑",
+                "date": "2026-04-15 ~ 2026-04-16"
+          },
+          {
+                "question": "Mac 安装 Homebrew 后没有出现 Next steps 提示，brew doctor 也不显示 ready，怎么办？",
+                "answer": "先确认 Homebrew 是否已经能继续安装其他工具。如果能继续安装 node、pandoc、opencode 等工具，就可以先往后走。\n\n如果路径没有生效，可以运行类似 `echo 'export PATH=\"/usr/local/sbin:$PATH\"' >> ~/.zshrc` 的命令，然后重新打开终端。Apple Silicon 机器也要注意 Homebrew 的实际安装路径可能不同。",
+                "category": "安装配置",
+                "keywords": [
+                      "Mac",
+                      "Homebrew",
+                      "brew doctor",
+                      "PATH",
+                      "zshrc"
+                ],
+                "frequency": 3,
+                "source": "微信群答疑",
+                "date": "2026-04-15"
+          },
+          {
+                "question": "Homebrew 安装很慢、卡住或连不上 GitHub 怎么办？",
+                "answer": "Homebrew 默认会连接 GitHub，国内网络下可能很慢或没有反应。可以等待一会儿；如果还是不动，就换清华源。\n\n如果有代理，也可以先开启全局模式或 TUN 模式再试。换源后建议重新打开一个终端，再执行安装命令。",
+                "category": "安装配置",
+                "keywords": [
+                      "Homebrew",
+                      "清华源",
+                      "GitHub",
+                      "代理",
+                      "TUN"
+                ],
+                "frequency": 6,
+                "source": "微信群答疑",
+                "date": "2026-04-15 ~ 2026-04-16"
+          },
+          {
+                "question": "教程里的 Homebrew 安装命令复制后报错，可能是什么原因？",
+                "answer": "可能是复制过程中命令里的字符格式出了问题。可以重新复制标准命令再试：\n\n`/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"`\n\n如果仍然连不上，优先考虑网络或源的问题。",
+                "category": "安装配置",
+                "keywords": [
+                      "Homebrew",
+                      "安装命令",
+                      "curl",
+                      "复制格式"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-15 ~ 2026-04-16"
+          },
+          {
+                "question": "如何确认 Homebrew 是否已经切到清华源？",
+                "answer": "可以检查环境变量和 brew 的远程仓库地址。例如查看 `HOMEBREW_BREW_GIT_REMOTE`、`HOMEBREW_CORE_GIT_REMOTE`、`HOMEBREW_API_DOMAIN`、`HOMEBREW_BOTTLE_DOMAIN` 是否指向 `mirrors.tuna.tsinghua.edu.cn`。\n\n也可以运行 `brew config` 或 `brew update --verbose`，观察输出里的 URL 是否为清华源。",
+                "category": "安装配置",
+                "keywords": [
+                      "Homebrew",
+                      "清华源",
+                      "brew config",
+                      "brew update"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-16"
+          },
+          {
+                "question": "Mac 上安装 node、pandoc、opencode 很慢，可以分开安装吗？",
+                "answer": "可以。node、pandoc、opencode 都不小，放在一条命令里失败后容易从头开始。可以分别执行：\n\n`brew install node`\n\n`brew install pandoc`\n\n`brew install anomalyco/tap/opencode`\n\nnode 和 pandoc 也可以去官网手动下载安装。",
+                "category": "安装配置",
+                "keywords": [
+                      "Mac",
+                      "node",
+                      "pandoc",
+                      "opencode",
+                      "brew install"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-16"
+          },
+          {
+                "question": "PowerShell 里粘贴不了，Control+V 没反应怎么办？",
+                "answer": "这通常是 PowerShell 版本较旧导致的。可以安装 Windows Terminal，用它替换旧版 PowerShell。\n\n安装后，在 Windows Terminal 或 VS Code 终端里继续运行后续命令。",
+                "category": "安装配置",
+                "keywords": [
+                      "PowerShell",
+                      "Control+V",
+                      "Windows Terminal",
+                      "粘贴"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-15"
+          },
+          {
+                "question": "PowerShell 在哪里打开？",
+                "answer": "在 Windows 底部菜单或搜索框里输入 PowerShell，打开即可。后续安装 opencode、Claude Code 或执行修复命令，都可以在 PowerShell 里完成。",
+                "category": "安装配置",
+                "keywords": [
+                      "PowerShell",
+                      "Windows",
+                      "搜索框",
+                      "终端"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-16"
+          },
+          {
+                "question": "PowerShell 命令把 RemoteSigned 和 -Scope 连在一起导致报错怎么办？",
+                "answer": "这是命令粘贴格式问题。正确写法是：\n\n`Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`\n\n`RemoteSigned` 和 `-Scope` 之间要有空格。",
+                "category": "安装配置",
+                "keywords": [
+                      "PowerShell",
+                      "RemoteSigned",
+                      "Scope",
+                      "执行策略"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-20"
+          },
+          {
+                "question": "只安装 Claude Code 或 opencode 其中一个可以吗？",
+                "answer": "可以。已经配置好 Claude Code 的同学，不一定还要再按教程配置 opencode；已经能顺畅使用 opencode 或 Codex 的同学，也可以根据自己的账户和网络情况选择最稳定的工具。\n\n课程里的很多操作和交互原则在 Claude Code、opencode、Codex 之间是相通的。",
+                "category": "工具选择",
+                "keywords": [
+                      "Claude Code",
+                      "opencode",
+                      "Codex",
+                      "工具选择"
+                ],
+                "frequency": 7,
+                "source": "微信群答疑",
+                "date": "2026-04-15 ~ 2026-04-20"
+          },
+          {
+                "question": "已经有 Codex 会员了，还需要申请 Claude 账号吗？",
+                "answer": "如果 Codex 已经可以顺畅使用，可以直接用 Codex。是否再申请 Claude，主要看个人账户、网络和课程跟练需求。\n\n上课演示可能以 Claude Code 为主，但核心操作思路可以迁移到 Codex 和 opencode。",
+                "category": "账号付费",
+                "keywords": [
+                      "Codex",
+                      "Claude",
+                      "ChatGPT Plus",
+                      "会员"
+                ],
+                "frequency": 3,
+                "source": "微信群答疑",
+                "date": "2026-04-16 ~ 2026-04-18"
+          },
+          {
+                "question": "有 Codex 后，安装程序里哪些内容还需要装？",
+                "answer": "如果已经能顺畅使用 Codex，可以不安装 opencode。但除 opencode 以外的基础工具仍建议安装，例如 Git、Node.js、Python/Miniconda、pandoc、VS Code 及相关插件。这些工具和文档处理、文件转换、课程练习都有关。",
+                "category": "安装配置",
+                "keywords": [
+                      "Codex",
+                      "opencode",
+                      "基础工具",
+                      "Git",
+                      "Node.js",
+                      "pandoc"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-18"
+          },
+          {
+                "question": "opencode 安装了桌面 App，还需要在终端安装吗？",
+                "answer": "桌面版和终端/CLI 版不是一回事。课程演示和很多 Skills、Agent 工作流更偏向终端或 VS Code 里的 CLI 使用。\n\n如果只是体验桌面版，可以先用桌面版；如果要跟着课程做完整配置，建议按教程把 CLI 也装好。",
+                "category": "工具使用",
+                "keywords": [
+                      "opencode",
+                      "桌面版",
+                      "CLI",
+                      "终端"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-15"
+          },
+          {
+                "question": "运行 opencode-ai 提示不是内部或外部命令，应该输入什么？",
+                "answer": "运行命令是 `opencode`，不是 `opencode-ai`。\n\n如果输入 `opencode` 仍然提示找不到命令，说明 CLI 可能没有装好，或者环境变量没有生效，需要回到 PowerShell 里重新执行安装步骤。",
+                "category": "安装配置",
+                "keywords": [
+                      "opencode",
+                      "opencode-ai",
+                      "命令找不到",
+                      "CLI"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-16"
+          },
+          {
+                "question": "npm install -g opencode-ai 一直转很久，需要等吗？",
+                "answer": "正常情况下不应该长时间卡住。可以先断开并重连 Wi-Fi，再重新执行；也可以换网络或检查代理。\n\n如果一直失败，可以按课程里的替代方案，用 PowerShell 执行清理重装命令，或使用 scoop 安装。",
+                "category": "安装配置",
+                "keywords": [
+                      "npm",
+                      "opencode-ai",
+                      "安装很慢",
+                      "网络"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-15 ~ 2026-04-16"
+          },
+          {
+                "question": "opencode 怎么创建 Agent？",
+                "answer": "在 PowerShell 或终端里运行 `opencode agent create`。注意不是进入 opencode 之后再输入，而是在普通终端环境里执行。",
+                "category": "工具使用",
+                "keywords": [
+                      "opencode",
+                      "agent",
+                      "opencode agent create"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-15"
+          },
+          {
+                "question": "Skills 安装好了，但运行 markitdown 仍提示没有安装，怎么办？",
+                "answer": "第一次运行相关 Skill 时，可能还需要安装底层依赖。先确认 conda 已安装并激活，例如命令行开头是否有 `(base)`。\n\n如果依赖安装失败，可以让 opencode 自己继续排查并安装。群里案例中重新删除并安装后恢复正常。",
+                "category": "工具使用",
+                "keywords": [
+                      "Skills",
+                      "markitdown",
+                      "conda",
+                      "依赖安装"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-15"
+          },
+          {
+                "question": "粉丝福利 Skills 和安装教程里的 Skills 是同一批吗？",
+                "answer": "是同一类常用 Skills。五一正课还会继续讲解并演示一些专门用于论文修改、润色和研究流程的 Skills。",
+                "category": "课程资料",
+                "keywords": [
+                      "Skills",
+                      "粉丝福利",
+                      "安装教程",
+                      "论文润色"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-19"
+          },
+          {
+                "question": "如果只用 Codex，能把 Skills 直接安装到 .codex/skills 吗？",
+                "answer": "可以。如果只使用 Codex，把 Skills 放到 `.codex/skills` 也可以。关键是保持唯一真相源，不要把同一批 Skills 分别放在多个目录里维护多个版本。",
+                "category": "工具使用",
+                "keywords": [
+                      "Codex",
+                      "Skills",
+                      ".codex/skills",
+                      "唯一真相源"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-18"
+          },
+          {
+                "question": "不用 Claude Code 了，可以删除 .claude 文件夹吗？",
+                "answer": "如果确定不用 Claude Code，可以删除 `.claude` 文件夹。但如果后面还可能使用 Claude Code，建议先保留，避免误删配置和已有 Agent/Skills 设置。",
+                "category": "工具使用",
+                "keywords": [
+                      "Claude Code",
+                      ".claude",
+                      "配置文件夹"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-18"
+          },
+          {
+                "question": "Claude 会员能不能接到 opencode 里共用？",
+                "answer": "不建议。Anthropic 之前明确不鼓励在 opencode、OpenClaw 等第三方软件里使用 Claude 会员额度，可能带来封号风险。\n\n如果有 Claude 会员，建议直接使用 Claude Code；如果想在 opencode 里使用 Claude 模型，可以考虑 opencode zen 渠道，按流量计费。",
+                "category": "账号付费",
+                "keywords": [
+                      "Claude",
+                      "opencode",
+                      "Anthropic",
+                      "opencode zen",
+                      "封号风险"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-16 ~ 2026-04-17"
+          },
+          {
+                "question": "opencode zen 是什么，适合什么时候用？",
+                "answer": "opencode zen 是 opencode 提供的模型渠道，支持多个国内外模型，按量计费。它适合刚开始想试用不同模型、还没决定长期订阅哪一家模型服务的同学。\n\n熟悉后，可以再根据自己的任务和预算订阅固定模型。",
+                "category": "账号付费",
+                "keywords": [
+                      "opencode zen",
+                      "按量计费",
+                      "模型渠道",
+                      "Claude"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-16"
+          },
+          {
+                "question": "国内模型推荐哪个？海外模型推荐哪个？",
+                "answer": "国内模型可以优先试 Kimi 和智谱。海外模型里，Claude 在大部分场景里比较可靠，但订阅可能需要国外银行卡，也可能遇到封号或稳定性问题。\n\n最终还是要看账户、网络和具体任务，选择自己最稳定的一套。",
+                "category": "模型选择",
+                "keywords": [
+                      "Kimi",
+                      "智谱",
+                      "Claude",
+                      "模型推荐"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-16"
+          },
+          {
+                "question": "在 VS Code 里使用 Codex/Claude 的 Extensions 和终端 CLI 有区别吗？",
+                "answer": "官方层面差别不大，近期插件版功能也逐渐跟上了。实际使用中，CLI 版执行文件操作、调用 Skills、处理复杂项目会更稳一些；插件版更方便嵌在编辑器界面里。\n\n如果插件版不稳定，可以直接在 VS Code 终端里使用 CLI。",
+                "category": "工具使用",
+                "keywords": [
+                      "VS Code",
+                      "Extensions",
+                      "CLI",
+                      "Codex",
+                      "Claude Code"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-16 ~ 2026-04-17"
+          },
+          {
+                "question": "VS Code 里打开 Claude 连不上，但 Claude App 可以用，怎么办？",
+                "answer": "可以在 `~/.claude/settings.json` 里配置代理。先在代理软件中找到服务端口号，再让 Claude Code 或其他 AI 帮你修改 `HTTPS_PROXY` 和 `HTTP_PROXY`。\n\n配置后重新打开一个终端，输入 `claude` 测试。",
+                "category": "安装配置",
+                "keywords": [
+                      "Claude Code",
+                      "VS Code",
+                      "代理",
+                      "settings.json",
+                      "HTTP_PROXY"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-16"
+          },
+          {
+                "question": "Claude 或相关工具连接不上，科学上网怎么设置？",
+                "answer": "不确定具体模式时，可以先尝试全局模式和 TUN 模式。Windows 上还要按教程设置系统代理环境变量。\n\n不同地区节点稳定性不一样，群里也有人反馈美国节点更稳定。遇到问题时，把错误信息复制给 AI，让它结合本机配置排查。",
+                "category": "网络代理",
+                "keywords": [
+                      "Claude",
+                      "科学上网",
+                      "全局模式",
+                      "TUN",
+                      "系统代理"
+                ],
+                "frequency": 5,
+                "source": "微信群答疑",
+                "date": "2026-04-15 ~ 2026-04-20"
+          },
+          {
+                "question": "用国内模型时需要开代理吗？",
+                "answer": "不一定。使用国内模型时，有时反而是开了代理连不上。遇到 Kimi、智谱等国内模型连接问题，可以先尝试关闭代理，再重新运行。",
+                "category": "网络代理",
+                "keywords": [
+                      "国内模型",
+                      "Kimi",
+                      "智谱",
+                      "代理",
+                      "梯子"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-17"
+          },
+          {
+                "question": "Kimi Coding Plan 支持 opencode 吗？",
+                "answer": "支持。群里反馈老师和不少同学都在 opencode 里使用 Kimi Coding Plan，除了有时比较慢，一般可以正常使用。\n\n如果遇到 invalid request error，可以先换模型、重启网络、重新打开工具，或改用 Claude Code 接入 Kimi 的方案排查。",
+                "category": "模型选择",
+                "keywords": [
+                      "Kimi Coding Plan",
+                      "opencode",
+                      "invalid request error",
+                      "模型切换"
+                ],
+                "frequency": 3,
+                "source": "微信群答疑",
+                "date": "2026-04-17 ~ 2026-04-21"
+          },
+          {
+                "question": "Kimi 模型出现 invalid request error，怎么排查？",
+                "answer": "这个错误不一定是 API key 过期或版本过低，也可能是客户端 Build 流程和当前模型存在兼容问题。\n\n可以先换一个更稳定的模型，进入目标文件夹后再启动 opencode，用简单指令测试，不要一开始就走 Build。如果简单指令可以运行，问题大概率在模型调用或工作区联动上。",
+                "category": "模型选择",
+                "keywords": [
+                      "Kimi",
+                      "invalid request error",
+                      "API key",
+                      "Build",
+                      "opencode"
+                ],
+                "frequency": 3,
+                "source": "微信群答疑",
+                "date": "2026-04-17"
+          },
+          {
+                "question": "Kimi 每隔几小时会有额度限制吗？",
+                "answer": "Kimi 可能存在时间窗口内的额度限制。可以登录 Kimi 后台查看当前套餐和使用量；如果界面有红色提示，可能是额度用完。\n\n如果没有看到超限提示，也可以等一段时间、重启工具或换模型测试。",
+                "category": "账号付费",
+                "keywords": [
+                      "Kimi",
+                      "额度",
+                      "Coding Plan",
+                      "套餐"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-17"
+          },
+          {
+                "question": "Kimi 新模型上线后，Coding Plan 能自动调用吗？需要重新生成 API 吗？",
+                "answer": "一般可以到后台查看模型列表，模型更新后通常会在后台体现。是否需要重新生成 API，要以后台显示为准；正常情况下不一定需要重新生成。",
+                "category": "模型选择",
+                "keywords": [
+                      "Kimi",
+                      "新模型",
+                      "Coding Plan",
+                      "API"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-21"
+          },
+          {
+                "question": "Claude Code 能接入其他家的模型吗，比如 OpenAI？",
+                "answer": "Claude Code 本身没有内置根据配置文件自动切换外部模型的功能。可以通过 Skill、MCP 或自己写 API 请求去调用其他模型。\n\n如果已经有 OpenAI/ChatGPT 会员，直接用 Codex 往往更简单。",
+                "category": "模型选择",
+                "keywords": [
+                      "Claude Code",
+                      "OpenAI",
+                      "Codex",
+                      "MCP",
+                      "模型切换"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-17 ~ 2026-04-18"
+          },
+          {
+                "question": "能不能在 CLAUDE.md 里配置多个模型，让 Claude Code 自动切换？",
+                "answer": "Claude Code 没有内置这种自动切换外部模型的机制。可以通过 Skill、MCP 或 API 请求调用其他模型，但不是简单写进 CLAUDE.md 就会自动切换。",
+                "category": "模型选择",
+                "keywords": [
+                      "CLAUDE.md",
+                      "Claude Code",
+                      "模型切换",
+                      "MCP",
+                      "Skill"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-17"
+          },
+          {
+                "question": "opencode 在 VS Code 终端里输出很慢，是 VS Code 的问题还是模型/网络问题？",
+                "answer": "更可能是模型或网络问题。GLM 等模型有时响应较慢，可以换 Kimi、Claude 或其他更快的模型测试。\n\n运行慢时不必一直等，可以开新窗口安排其他任务，或者先做别的事情。",
+                "category": "工具使用",
+                "keywords": [
+                      "opencode",
+                      "VS Code",
+                      "GLM",
+                      "响应慢",
+                      "模型速度"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-17"
+          },
+          {
+                "question": "在 VS Code 终端里用 opencode，页面不能滚动怎么办？",
+                "answer": "Windows 上可以先安装 Windows Terminal。如果在 VS Code 终端里仍无法滚动，而普通 PowerShell 里没问题，可以先改用 PowerShell 或 Windows Terminal，后续再排查 VS Code 终端设置。",
+                "category": "工具使用",
+                "keywords": [
+                      "VS Code",
+                      "opencode",
+                      "终端滚动",
+                      "Windows Terminal"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-17"
+          },
+          {
+                "question": "打开 D 盘文件夹后 opencode 自动退出，只能手动复制路径吗？",
+                "answer": "这不一定是 opencode 的普遍 bug，更可能和本机设置或操作方式有关。可以让 AI 逐项排查 VS Code 打开文件夹、工作区路径、终端路径和 opencode 启动方式。\n\n临时方案是进入目标文件夹路径后再启动 opencode，或新建窗口测试。",
+                "category": "工具使用",
+                "keywords": [
+                      "opencode",
+                      "VS Code",
+                      "打开文件夹",
+                      "工作区路径",
+                      "D 盘"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-16 ~ 2026-04-17"
+          },
+          {
+                "question": "PDF 转成 Markdown 后看起来像渲染页面，怎么查看源文件？",
+                "answer": "如果 Markdown 已经正常打开并渲染了格式，可以点击右上角的小铅笔图标查看源文件。Word 能正常打开，Markdown 也能渲染，通常说明转换已经成功。",
+                "category": "文件处理",
+                "keywords": [
+                      "PDF",
+                      "Markdown",
+                      "Word",
+                      "源文件",
+                      "渲染"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-16"
+          },
+          {
+                "question": "先导课有回放吗？在哪里看？",
+                "answer": "有回放。回放会传到播放器，上传好后会在群里通知。也可以通过腾讯会议录制链接申请观看，申请时记得备注名字。",
+                "category": "课程安排",
+                "keywords": [
+                      "先导课",
+                      "回放",
+                      "播放器",
+                      "腾讯会议"
+                ],
+                "frequency": 10,
+                "source": "微信群答疑",
+                "date": "2026-04-15 ~ 2026-04-21"
+          },
+          {
+                "question": "晚上先导课几点直播、用什么软件看？",
+                "answer": "先导课在 4 月 15 日晚上 7 点半开始。观看渠道和播放器安装说明会在群里发布，新报名学员也可以查看群文件里的安装说明。",
+                "category": "课程安排",
+                "keywords": [
+                      "先导课",
+                      "直播时间",
+                      "播放器",
+                      "听课软件"
+                ],
+                "frequency": 3,
+                "source": "微信群答疑",
+                "date": "2026-04-15"
+          },
+          {
+                "question": "播放器看不了回放，提示录屏或外接显示器怎么办？",
+                "answer": "播放器可能会检测截图、录屏或外接显示设备。Mac 上需要按播放器说明关闭相关程序或权限；如果外接显示器不行，建议用平板观看。\n\n如果播放器仍看不了，可以通过腾讯会议录制链接申请观看。",
+                "category": "课程安排",
+                "keywords": [
+                      "播放器",
+                      "回放",
+                      "录屏检测",
+                      "外接显示器",
+                      "腾讯会议"
+                ],
+                "frequency": 4,
+                "source": "微信群答疑",
+                "date": "2026-04-16"
+          },
+          {
+                "question": "审稿人 Agent 的 md 文件在哪里？",
+                "answer": "群里已分享 `审稿人agent提示词.md`。如果想让 CC/Codex 后续都能调用这类 Agent，课程后面会讲具体配置方式，先导课最后也有简短演示。",
+                "category": "课程资料",
+                "keywords": [
+                      "审稿人 Agent",
+                      "md 文件",
+                      "提示词",
+                      "Codex",
+                      "Claude Code"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-15 ~ 2026-04-20"
+          },
+          {
+                "question": "课程正式上课时主要用 opencode 还是 Claude Code？",
+                "answer": "老师平时多使用 Claude Code，课程演示会以 Claude Code 为主，主要是为了直播流畅。但 Claude Code、opencode、Codex 的大部分操作原则相通。\n\n上课时大家选择自己账户和网络最稳定的工具即可，避免中途断掉。",
+                "category": "课程安排",
+                "keywords": [
+                      "正式课",
+                      "opencode",
+                      "Claude Code",
+                      "Codex",
+                      "演示工具"
+                ],
+                "frequency": 3,
+                "source": "微信群答疑",
+                "date": "2026-04-16 ~ 2026-04-20"
+          },
+          {
+                "question": "五月四号的内容都可以用 opencode 实现吗？",
+                "answer": "可以。不同工具之间如果效果有差异，主要通常不是 opencode 和 Claude Code 的差异，而是背后使用的模型不同导致的差异。",
+                "category": "课程安排",
+                "keywords": [
+                      "五一课程",
+                      "opencode",
+                      "Claude Code",
+                      "模型差异"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-20"
+          },
+          {
+                "question": "国外使用苹果电脑，只装 Claude Code、VS Code 插件和基础工具会影响课程吗？",
+                "answer": "可以按检查清单安装基础工具和 VS Code 插件，再用 `brew install --cask claude-code` 安装 Claude Code。Python 已经在 Miniconda 中，学校电脑不方便安装 opencode 时，可以先用 Claude Code 跟课。",
+                "category": "安装配置",
+                "keywords": [
+                      "Mac",
+                      "国外网络",
+                      "Claude Code",
+                      "VS Code",
+                      "Miniconda"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-16"
+          },
+          {
+                "question": "Anaconda 已经装了，还需要安装 Miniconda 吗？",
+                "answer": "如果电脑里已经有 Anaconda，一般不用再装 Miniconda。两者功能有重叠，后续重点是保证 Python/conda 环境可用。",
+                "category": "安装配置",
+                "keywords": [
+                      "Anaconda",
+                      "Miniconda",
+                      "Python",
+                      "conda"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-17"
+          },
+          {
+                "question": "Anaconda Prompt 和 PowerShell 功能一样吗？可以用 Anaconda Prompt 吗？",
+                "answer": "功能有重叠。某些在 PowerShell 里因为环境变量出错的步骤，可以在 Anaconda Prompt 里解决，因为它会自动激活 base 环境。",
+                "category": "安装配置",
+                "keywords": [
+                      "Anaconda Prompt",
+                      "PowerShell",
+                      "base 环境",
+                      "环境变量"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-17"
+          },
+          {
+                "question": "Git 安装后版本号和教程不一样，比如 windows.2 或 windows.3，是安装失败吗？",
+                "answer": "不是。小版本不同没关系，显示更新的小版本反而说明安装的是更新版本。能正常显示 `git version` 就说明安装成功。",
+                "category": "安装配置",
+                "keywords": [
+                      "Git",
+                      "版本号",
+                      "windows.2",
+                      "windows.3",
+                      "安装成功"
+                ],
+                "frequency": 2,
+                "source": "微信群答疑",
+                "date": "2026-04-16"
+          },
+          {
+                "question": "想单独买一台笔记本配置 opencode，有什么推荐配置？",
+                "answer": "优先内存大一点，建议 32GB 以上。模型不是在本地跑的，所以 CPU/GPU 性能不是最关键；内存大可以让多个窗口和工具同时运行时更不卡。\n\n注意内存和硬盘容量不是一回事。",
+                "category": "硬件配置",
+                "keywords": [
+                      "笔记本",
+                      "opencode",
+                      "内存",
+                      "32GB",
+                      "硬件配置"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-21"
+          },
+          {
+                "question": "本地部署 30B 或更高模型接 Claude Code，能省 token 钱吗？",
+                "answer": "不太现实。30B 量化模型本身可能就要占 20GB 左右显存，而科研任务常需要 64K 以上上下文，输入上下文还会额外占显存。\n\n真正生产力场景里，30B 本地模型和主流云端强模型差距仍然明显。本地模型适合角色扮演或简单结构化任务，想替代高强度科研写作和代码工作成本很高。",
+                "category": "模型选择",
+                "keywords": [
+                      "本地模型",
+                      "30B",
+                      "显存",
+                      "Claude Code",
+                      "token"
+                ],
+                "frequency": 1,
+                "source": "微信群答疑",
+                "date": "2026-04-21"
+          }
+    ];
+
+    let faqs = [...demoFaqs];
+    let meta = {...demoMeta};
+    let activeCategory = "全部";
+
+    const els = {
+      pageTitle: document.querySelector("#pageTitle"),
+      pageSubtitle: document.querySelector("#pageSubtitle"),
+      totalCount: document.querySelector("#totalCount"),
+      categoryCount: document.querySelector("#categoryCount"),
+      categoryChips: document.querySelector("#categoryChips"),
+      searchInput: document.querySelector("#searchInput"),
+      sortSelect: document.querySelector("#sortSelect"),
+      faqList: document.querySelector("#faqList"),
+      resultNote: document.querySelector("#resultNote"),
+      emptyState: document.querySelector("#emptyState"),
+      importBox: document.querySelector("#importBox"),
+      jsonInput: document.querySelector("#jsonInput"),
+      toast: document.querySelector("#toast")
+    };
+
+    function normalizeText(value) {
+      return String(value || "").toLowerCase().trim();
+    }
+
+    function getCategories() {
+      const counts = new Map();
+      faqs.forEach(item => {
+        const category = item.category || "未分类";
+        counts.set(category, (counts.get(category) || 0) + 1);
+      });
+      return [...counts.entries()].sort((a, b) => b[1] - a[1]);
+    }
+
+    function formatKeywords(keywords) {
+      if (!Array.isArray(keywords)) return [];
+      return keywords.filter(Boolean);
+    }
+
+    function escapeHtml(text) {
+      return String(text ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function answerToHtml(answer) {
+      return String(answer || "")
+        .split(/\n{2,}/)
+        .map(part => `<p>${escapeHtml(part).replaceAll("\n", "<br>")}</p>`)
+        .join("");
+    }
+
+    function renderStats() {
+      const categories = getCategories();
+      els.totalCount.textContent = faqs.length;
+      els.categoryCount.textContent = categories.length;
+
+      const chips = [["全部", faqs.length], ...categories]
+        .map(([name, count]) => {
+          const active = name === activeCategory ? " active" : "";
+          return `<button class="chip${active}" type="button" data-category="${escapeHtml(name)}">${escapeHtml(name)} ${count}</button>`;
+        })
+        .join("");
+
+      els.categoryChips.innerHTML = chips;
+      els.categoryChips.querySelectorAll(".chip").forEach(chip => {
+        chip.addEventListener("click", () => {
+          activeCategory = chip.dataset.category;
+          render();
+        });
+      });
+    }
+
+    function getFilteredItems() {
+      const query = normalizeText(els.searchInput.value);
+      let items = faqs.filter(item => {
+        const categoryOk = activeCategory === "全部" || (item.category || "未分类") === activeCategory;
+        const haystack = normalizeText([
+          item.question,
+          item.answer,
+          item.category,
+          item.source,
+          ...(Array.isArray(item.keywords) ? item.keywords : [])
+        ].join(" "));
+        return categoryOk && (!query || haystack.includes(query));
+      });
+
+      const sort = els.sortSelect.value;
+      if (sort === "frequency") {
+        items = items.sort((a, b) => (b.frequency || 0) - (a.frequency || 0));
+      } else if (sort === "recent") {
+        items = items.sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+      } else if (sort === "category") {
+        items = items.sort((a, b) => String(a.category || "").localeCompare(String(b.category || ""), "zh-Hans-CN"));
+      }
+      return items;
+    }
+
+    function renderList() {
+      const items = getFilteredItems();
+      els.resultNote.textContent = `显示 ${items.length} / ${faqs.length} 条`;
+      els.emptyState.classList.toggle("show", items.length === 0);
+
+      els.faqList.innerHTML = items.map((item, index) => {
+        const keywords = formatKeywords(item.keywords);
+        const hot = Number(item.frequency || 0) > 1
+          ? `<span class="badge hot">被问 ${escapeHtml(item.frequency)} 次</span>`
+          : "";
+        const keywordHtml = keywords.map(word => `<span class="keyword">${escapeHtml(word)}</span>`).join("");
+        return `
+          <details class="faq">
+            <summary>
+              <span class="q-no">Q${String(index + 1).padStart(3, "0")}</span>
+              <div>
+                <div class="badges">
+                  <span class="badge">${escapeHtml(item.category || "未分类")}</span>
+                  ${hot}
+                </div>
+                <h3 class="question">${escapeHtml(item.question)}</h3>
+              </div>
+              <span class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </summary>
+            <div class="answer">
+              ${answerToHtml(item.answer)}
+              <div class="meta">
+                ${item.source ? `<span>来源：${escapeHtml(item.source)}</span>` : ""}
+                ${item.date ? `<span>日期：${escapeHtml(item.date)}</span>` : ""}
+                ${keywordHtml}
+              </div>
+            </div>
+          </details>
+        `;
+      }).join("");
+    }
+
+    function render() {
+      els.pageTitle.textContent = meta.title || "课程 FAQ 知识页";
+      els.pageSubtitle.textContent = meta.subtitle || "";
+      document.title = els.pageTitle.textContent;
+      renderStats();
+      renderList();
+    }
+
+    function showToast(message) {
+      els.toast.textContent = message;
+      els.toast.classList.add("show");
+      window.setTimeout(() => els.toast.classList.remove("show"), 1800);
+    }
+
+    function currentJson() {
+      return JSON.stringify({meta, faqs}, null, 2);
+    }
+
+    document.querySelector("#toggleImport").addEventListener("click", () => {
+      els.importBox.classList.toggle("show");
+      els.jsonInput.value = currentJson();
+    });
+
+    document.querySelector("#applyJson").addEventListener("click", () => {
+      try {
+        const parsed = JSON.parse(els.jsonInput.value);
+        const nextFaqs = Array.isArray(parsed) ? parsed : parsed.faqs;
+        if (!Array.isArray(nextFaqs)) {
+          throw new Error("JSON 需要是数组，或包含 faqs 数组。");
+        }
+        faqs = nextFaqs;
+        meta = parsed.meta || meta;
+        activeCategory = "全部";
+        render();
+        showToast("数据已应用");
+      } catch (error) {
+        showToast(error.message);
+      }
+    });
+
+    document.querySelector("#loadDemo").addEventListener("click", () => {
+      faqs = [...demoFaqs];
+      meta = {...demoMeta};
+      activeCategory = "全部";
+      els.jsonInput.value = currentJson();
+      render();
+      showToast("已恢复示例数据");
+    });
+
+    document.querySelector("#expandAll").addEventListener("click", () => {
+      document.querySelectorAll(".faq").forEach(item => item.open = true);
+    });
+
+    document.querySelector("#collapseAll").addEventListener("click", () => {
+      document.querySelectorAll(".faq").forEach(item => item.open = false);
+    });
+
+    document.querySelector("#printPage").addEventListener("click", () => window.print());
+    els.searchInput.addEventListener("input", renderList);
+    els.sortSelect.addEventListener("change", renderList);
+
+    async function loadInitialData() {
+      render();
+    }
+
+    loadInitialData();
+  </script>
+</body>
+</html>
