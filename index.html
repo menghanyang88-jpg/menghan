@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>连享会 2026 五一论文班 FAQ</title>
+<link rel="icon" href="data:,">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+  .qa-answer { transition: all 0.2s ease; }
+  .qa-chevron.open { transform: rotate(180deg); }
+  .filter-btn.active { background-color: #111827 !important; color: white !important; }
+  #aiResponse.ai-scroll {
+    max-height: min(56vh, 520px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    padding-right: 4px;
+  }
+  #aiResponse.ai-scroll::-webkit-scrollbar { width: 9px; }
+  #aiResponse.ai-scroll::-webkit-scrollbar-track { background: #EEF2FF; border-radius: 999px; }
+  #aiResponse.ai-scroll::-webkit-scrollbar-thumb { background: #A5B4FC; border-radius: 999px; border: 2px solid #EEF2FF; }
+  #aiResponse.ai-scroll::-webkit-scrollbar-thumb:hover { background: #818CF8; }
+  #aiAnswerText { font-size: 0.875rem; line-height: 1.6; }
+  #aiAnswerText h2 { font-size: 1rem; font-weight: 600; margin: 0.6rem 0 0.2rem; color: #1e1b4b; }
+  #aiAnswerText h3 { font-size: 0.95rem; font-weight: 600; margin: 0.5rem 0 0.15rem; color: #312e81; }
+  #aiAnswerText h4 { font-size: 0.9rem; font-weight: 600; margin: 0.4rem 0 0.1rem; color: #312e81; }
+  #aiAnswerText p { margin: 0.3rem 0; }
+  #aiAnswerText ul { list-style: disc; padding-left: 1.25rem; margin: 0.2rem 0; }
+  #aiAnswerText ol { list-style: decimal; padding-left: 1.25rem; margin: 0.2rem 0; }
+  #aiAnswerText li { margin: 0.1rem 0; }
+  #aiAnswerText li > p { margin: 0; display: inline; }
+  #aiAnswerText code { background: #E0E7FF; padding: 0.1rem 0.35rem; border-radius: 0.25rem; font-size: 0.8em; font-family: ui-monospace, monospace; }
+  #aiAnswerText pre { background: #1E1B4B; color: #E0E7FF; padding: 0.75rem 1rem; border-radius: 0.5rem; overflow-x: auto; margin: 0.4rem 0; font-size: 0.8rem; line-height: 1.5; }
+  #aiAnswerText pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+  #aiAnswerText strong { font-weight: 600; }
+  @media print { .no-print { display: none; } }
+</style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+<header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+  <div class="max-w-4xl mx-auto px-4 py-4">
+    <h1 id="pageTitle" class="text-2xl font-bold text-gray-900">连享会26五一论文班 常见问题</h1>
+    <p class="text-sm text-gray-500 mt-1">
+      <span id="pageSubtitle">基于群聊天记录及先导课提取</span>，共 <span id="totalCount" class="font-semibold text-gray-700">0</span> 条常见问题
+    </p>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-4 py-6">
+
+  <div class="bg-white rounded-xl border border-indigo-200 border-l-4 border-l-indigo-500 p-5 mb-6" id="aiChat">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-lg">&#x1F916;</span>
+      <h3 class="text-base font-semibold text-gray-900">问问AI</h3>
+      <span class="text-xs text-gray-400">基于微信群聊天记录智能整理</span>
+    </div>
+    <div class="flex gap-2">
+      <input type="text" id="aiInput" placeholder="输入你的问题..."
+             class="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none">
+      <button id="aiSendBtn" onclick="askAI()"
+              class="px-4 py-2.5 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+        发送
+      </button>
+    </div>
+
+    <div id="aiResponse" class="hidden ai-scroll mt-4">
+      <div id="aiLoading" class="hidden">
+        <div class="animate-pulse space-y-2">
+          <div class="h-4 bg-gray-200 rounded w-3/4"></div>
+          <div class="h-4 bg-gray-200 rounded w-1/2"></div>
+          <div class="h-4 bg-gray-200 rounded w-5/6"></div>
+        </div>
+        <p class="text-xs text-gray-400 mt-2" id="aiLoadingText">正在搜索相关问题...</p>
+      </div>
+
+      <div id="aiAnswer" class="hidden">
+        <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4">
+          <div class="flex justify-between items-start mb-2">
+            <span class="text-sm font-medium text-indigo-800">AI 回答</span>
+            <button onclick="closeAIAnswer()" class="text-gray-400 hover:text-gray-600 text-lg leading-none">&times;</button>
+          </div>
+          <div id="aiAnswerText" class="prose prose-sm max-w-none text-gray-700 leading-relaxed"></div>
+
+          <div id="aiSources" class="mt-3 pt-3 border-t border-indigo-200">
+            <p class="text-xs text-gray-500 mb-2">参考来源：</p>
+            <div id="aiSourceList" class="space-y-1"></div>
+          </div>
+
+          <div class="mt-3 bg-amber-50 border border-amber-200 rounded p-2 text-xs text-amber-700">
+            此回答由AI自动生成，仅供参考。如有疑问请以群内老师的回复为准。
+          </div>
+        </div>
+      </div>
+
+      <div id="aiError" class="hidden">
+        <div class="bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-700">
+          <p id="aiErrorText"></p>
+          <button onclick="askAI()" class="mt-2 px-3 py-1 bg-red-100 rounded text-xs hover:bg-red-200">重试</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-print mb-6 space-y-3">
+    <div class="relative">
+      <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      </svg>
+      <input type="text" id="searchInput" placeholder="搜索问题、答案或关键词..."
+             class="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+             oninput="filterItems()">
+    </div>
+    <div class="flex flex-wrap gap-2" id="categoryFilters"></div>
+  </div>
+
+  <div id="qaList"></div>
+
+  <div id="noResults" class="hidden text-center py-12 text-gray-400">
+    <svg class="w-12 h-12 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+    </svg>
+    <p>没有找到匹配的问题</p>
+  </div>
+
+</main>
+
+<footer class="border-t border-gray-200 bg-white mt-12">
+  <div class="max-w-4xl mx-auto px-4 py-4 text-center text-xs text-gray-400" id="footerText">
+    数据来源：微信群聊天记录 | 自动生成 FAQ
+  </div>
+</footer>
+
+<script>
+const STATIC_FAQ_DATA = {"meta":{"title":"连享会 2026 五一论文班 FAQ","subtitle":"基于微信群“连享会:2026五一论文班”2026-04-15 至 2026-04-21 的聊天记录整理。"},"faqs":[{"question":"安装完 Miniconda 后，在 PowerShell 里运行 conda init powershell 报错怎么办？","answer":"可以先在 Anaconda PowerShell Prompt 里执行相关命令。执行后关闭所有终端窗口，再继续后面的安装步骤。\n\n如果 PowerShell 里出现环境变量相关报错，Anaconda Prompt 往往可以临时绕过，因为它会自动激活 base 环境。","category":"安装配置","keywords":["Miniconda","conda init","PowerShell","Anaconda Prompt"],"frequency":3,"source":"微信群答疑","date":"2026-04-15 ~ 2026-04-17","sourceMessages":[{"time":"2026-04-15 14:07","sender":"nati","text":"安装完Miniconda后，在powershell里输入conda init powershell，显示下面这个报错，怎么回事呢？"},{"time":"2026-04-15 14:10","sender":"Tina","text":"在Anaconda powershell里输入"},{"time":"2026-04-17 16:09","sender":"Rena","text":"anaconda prompt和power shell功能好像一样，是不是用anaconda prompt也行？"},{"time":"2026-04-17 16:18","sender":"李晓燕","text":"新报名的老师可以下载这个压缩包查看之前发的文件"},{"time":"2026-04-17 16:26","sender":"李晓燕","text":"功能有重叠，老师，有一步在power shell执行的时候会显示环境变量有问题的报错的时候，在anaconda prompt可以解决，anaconda prompt可以 @Rena 自动激活 base 环境"}]},{"question":"Git 安装界面里应该选哪个选项？","answer":"遇到 Git 安装里的默认编辑器或换行相关选项时，一般保持默认即可。群里提到的 Let Git decide 这一项可以直接选择。","category":"安装配置","keywords":["Git","安装选项","Let Git decide"],"frequency":1,"source":"微信群答疑","date":"2026-04-15","sourceMessages":[{"time":"2026-04-15 14:37","sender":"学恒Li","text":"这一步let git decide就行"},{"time":"2026-04-15 14:38","sender":"妍","text":"好的呢，那我就写选择第一个。谢谢李老师"}]},{"question":"opencode 里没有 GLM-5 Free 模型怎么办？","answer":"免费模型会轮换，每隔一阵可选模型都可能变化。没有 GLM-5 Free 不代表安装有问题，可以先换其他 free 模型继续操作。\n\n如果只是想先跑通流程，任选一个当前可用的免费模型测试即可。","category":"模型选择","keywords":["opencode","GLM-5","free 模型","免费模型","模型轮换"],"frequency":4,"source":"微信群答疑","date":"2026-04-15 ~ 2026-04-16","sourceMessages":[{"time":"2026-04-16 19:23","sender":"蒲公英","text":"老师，我这个里面没有您推荐的GLM-5 FREE模型，有影响吗？"},{"time":"2026-04-16 19:27","sender":"学恒Li","text":"[链接/文件] 慷慨激昂和学恒Li的聊天记录"},{"time":"2026-04-16 19:27","sender":"学恒Li","text":"这个助教可以答一下"},{"time":"2026-04-16 19:33","sender":"蒲公英","text":"老师，那我随便选个其他free模型，可以继续按操作往下进行吗？"},{"time":"2026-04-16 19:33","sender":"王老师（连享会）","text":"@蒲公英 我觉得可以，尝试一下就知道了"}]},{"question":"Mac 安装 Homebrew 后没有出现 Next steps 提示，brew doctor 也不显示 ready，怎么办？","answer":"先确认 Homebrew 是否已经能继续安装其他工具。如果能继续安装 node、pandoc、opencode 等工具，就可以先往后走。\n\n如果路径没有生效，可以运行类似 `echo 'export PATH=\"/usr/local/sbin:$PATH\"' >> ~/.zshrc` 的命令，然后重新打开终端。Apple Silicon 机器也要注意 Homebrew 的实际安装路径可能不同。","category":"安装配置","keywords":["Mac","Homebrew","brew doctor","PATH","zshrc"],"frequency":3,"source":"微信群答疑","date":"2026-04-15","sourceMessages":[{"time":"2026-04-15 16:24","sender":"慷慨激昂","text":"老师您好，直接回车后我的界面是这样的。电脑为M芯片，但是之后没有跳出来类似==> Next steps: Add Homebrew to your PATH in /Users/你的用户名/.zprofile的提示，查询brew docto"},{"time":"2026-04-15 23:00","sender":"严艳娥","text":"李老师，我运行了您的这个，但是我运行brew doctor还是没有看到Your system is ready to brew"},{"time":"2026-04-15 23:01","sender":"严艳娥","text":"我运行了您的那个命令，之后输入brew doctor还是这样"},{"time":"2026-04-15 23:01","sender":"学恒Li","text":"重新打开一个终端"},{"time":"2026-04-15 21:15","sender":"严艳娥","text":"老师，mac安装homebrew怎么总是不动呀"}]},{"question":"Homebrew 安装很慢、卡住或连不上 GitHub 怎么办？","answer":"Homebrew 默认会连接 GitHub，国内网络下可能很慢或没有反应。可以等待一会儿；如果还是不动，就换清华源。\n\n如果有代理，也可以先开启全局模式或 TUN 模式再试。换源后建议重新打开一个终端，再执行安装命令。","category":"安装配置","keywords":["Homebrew","清华源","GitHub","代理","TUN"],"frequency":6,"source":"微信群答疑","date":"2026-04-15 ~ 2026-04-16","sourceMessages":[{"time":"2026-04-15 15:01","sender":"学恒Li","text":"这个复制进去再试一次：/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""},{"time":"2026-04-15 15:03","sender":"学恒Li","text":"鉴于大家安装上都出现了不同的大大小小的问题，我们晚上先导课的第一部分会按照宣传的，先展示一遍所有相关软件的安装流程和vscode里面打开opencode的界面介绍"},{"time":"2026-04-16 18:03","sender":"学恒Li","text":"重新复制粘贴这个再试一次： /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""},{"time":"2026-04-16 18:03","sender":"学恒Li","text":"教程里那一行的字符有点问题，可能会导致错误，你重新复制这个试一遍：/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/inst"},{"time":"2026-04-15 16:24","sender":"慷慨激昂","text":"老师您好，直接回车后我的界面是这样的。电脑为M芯片，但是之后没有跳出来类似==> Next steps: Add Homebrew to your PATH in /Users/你的用户名/.zprofile的提示，查询brew docto"}]},{"question":"教程里的 Homebrew 安装命令复制后报错，可能是什么原因？","answer":"可能是复制过程中命令里的字符格式出了问题。可以重新复制标准命令再试：\n\n`/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"`\n\n如果仍然连不上，优先考虑网络或源的问题。","category":"安装配置","keywords":["Homebrew","安装命令","curl","复制格式"],"frequency":2,"source":"微信群答疑","date":"2026-04-15 ~ 2026-04-16","sourceMessages":[{"time":"2026-04-15 15:01","sender":"学恒Li","text":"这个复制进去再试一次：/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""},{"time":"2026-04-15 15:03","sender":"学恒Li","text":"鉴于大家安装上都出现了不同的大大小小的问题，我们晚上先导课的第一部分会按照宣传的，先展示一遍所有相关软件的安装流程和vscode里面打开opencode的界面介绍"},{"time":"2026-04-16 18:03","sender":"学恒Li","text":"重新复制粘贴这个再试一次： /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""},{"time":"2026-04-16 18:03","sender":"学恒Li","text":"教程里那一行的字符有点问题，可能会导致错误，你重新复制这个试一遍：/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/inst"},{"time":"2026-04-15 16:24","sender":"慷慨激昂","text":"老师您好，直接回车后我的界面是这样的。电脑为M芯片，但是之后没有跳出来类似==> Next steps: Add Homebrew to your PATH in /Users/你的用户名/.zprofile的提示，查询brew docto"}]},{"question":"如何确认 Homebrew 是否已经切到清华源？","answer":"可以检查环境变量和 brew 的远程仓库地址。例如查看 `HOMEBREW_BREW_GIT_REMOTE`、`HOMEBREW_CORE_GIT_REMOTE`、`HOMEBREW_API_DOMAIN`、`HOMEBREW_BOTTLE_DOMAIN` 是否指向 `mirrors.tuna.tsinghua.edu.cn`。\n\n也可以运行 `brew config` 或 `brew update --verbose`，观察输出里的 URL 是否为清华源。","category":"安装配置","keywords":["Homebrew","清华源","brew config","brew update"],"frequency":2,"source":"微信群答疑","date":"2026-04-16","sourceMessages":[{"time":"2026-04-16 18:03","sender":"学恒Li","text":"重新复制粘贴这个再试一次： /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""},{"time":"2026-04-16 18:03","sender":"学恒Li","text":"教程里那一行的字符有点问题，可能会导致错误，你重新复制这个试一遍：/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/inst"},{"time":"2026-04-16 17:57","sender":"李松松","text":"安装homebrew过程中，这个时候继续等待么，教程说现在要提示输入密码，现在还没有给提示"},{"time":"2026-04-16 17:58","sender":"学恒Li","text":"换用清华源"}]},{"question":"Mac 上安装 node、pandoc、opencode 很慢，可以分开安装吗？","answer":"可以。node、pandoc、opencode 都不小，放在一条命令里失败后容易从头开始。可以分别执行：\n\n`brew install node`\n\n`brew install pandoc`\n\n`brew install anomalyco/tap/opencode`\n\nnode 和 pandoc 也可以去官网手动下载安装。","category":"安装配置","keywords":["Mac","node","pandoc","opencode","brew install"],"frequency":1,"source":"微信群答疑","date":"2026-04-16","sourceMessages":[{"time":"2026-04-16 16:19","sender":"学恒Li","text":"node pandoc opencode这几个分别都不小，首先其实git不用再安装了，之前安装xcode的时候自带了，然后node pandoc opencode可以分别安装，这样不用失败中断了重新开始： brew install node"},{"time":"2026-04-16 14:56","sender":"学恒Li","text":"运行完了，再重新打开一个terminal，然后重新试试brew install pandoc"},{"time":"2026-04-16 14:56","sender":"学恒Li","text":"截屏我看看？"},{"time":"2026-04-16 14:57","sender":"学恒Li","text":"这个显示并没有从清华源安装"},{"time":"2026-04-16 16:20","sender":"学恒Li","text":"或者node和pandoc就手动下载装一下：node.js - https://nodejs.org/， pandoc - https://pandoc.org/installing.html#macos"}]},{"question":"PowerShell 里粘贴不了，Control+V 没反应怎么办？","answer":"这通常是 PowerShell 版本较旧导致的。可以安装 Windows Terminal，用它替换旧版 PowerShell。\n\n安装后，在 Windows Terminal 或 VS Code 终端里继续运行后续命令。","category":"安装配置","keywords":["PowerShell","Control+V","Windows Terminal","粘贴"],"frequency":1,"source":"微信群答疑","date":"2026-04-15","sourceMessages":[{"time":"2026-04-15 15:12","sender":"学恒Li","text":"我们晚上会一并演示答疑，“control+V没反应”因为powershell版本比较旧，下载安装 windows terminal ，替换原来旧版的powershell：https://apps.microsoft.com/detail/9"},{"time":"2026-04-15 15:09","sender":"nati","text":"李老师，下面这句话是直接粘贴在opencode里面还是等它连接上模型后再粘贴？另外，opencode里面粘贴的命令是什么？用control+V没反应啊"},{"time":"2026-04-15 14:07","sender":"nati","text":"安装完Miniconda后，在powershell里输入conda init powershell，显示下面这个报错，怎么回事呢？"},{"time":"2026-04-15 14:10","sender":"Tina","text":"在Anaconda powershell里输入"},{"time":"2026-04-15 18:24","sender":"学恒Li","text":"一个是在终端/powershell里运行，一个是桌面软件版本"}]},{"question":"PowerShell 在哪里打开？","answer":"在 Windows 底部菜单或搜索框里输入 PowerShell，打开即可。后续安装 opencode、Claude Code 或执行修复命令，都可以在 PowerShell 里完成。","category":"安装配置","keywords":["PowerShell","Windows","搜索框","终端"],"frequency":2,"source":"微信群答疑","date":"2026-04-16","sourceMessages":[{"time":"2026-04-16 09:22","sender":"学恒Li","text":"点开windows底下菜单的搜索🔍框，输入Powershell，打开，然后依次输入： npm uninstall -g opencode-ai opencode-windows-x64 opencode-windows-x64-basel"},{"time":"2026-04-16 09:25","sender":"学恒Li","text":"@香雪兰 如果再不行，重新打开powershell，依次输入："},{"time":"2026-04-16 01:23","sender":"香雪兰","text":"不知道这个powershell在哪里打开"},{"time":"2026-04-16 01:23","sender":"学恒Li","text":"可以看视频回放[抱拳]"},{"time":"2026-04-16 15:05","sender":"学恒Li","text":"就是不是在powershell里面打开？"}]},{"question":"PowerShell 命令把 RemoteSigned 和 -Scope 连在一起导致报错怎么办？","answer":"这是命令粘贴格式问题。正确写法是：\n\n`Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`\n\n`RemoteSigned` 和 `-Scope` 之间要有空格。","category":"安装配置","keywords":["PowerShell","RemoteSigned","Scope","执行策略"],"frequency":1,"source":"微信群答疑","date":"2026-04-20","sourceMessages":[{"time":"2026-04-20 21:00","sender":"吕志冲","text":"您好，这是因为把RemoteSigned和-Scope连在一起了，PowerShell把Remotesigned-Scope当成了一个整体参数 正确写法： Set-ExecutionPolicy RemoteSigned -Scope Cu"},{"time":"2026-04-20 21:21","sender":"刘泽霄","text":"老师好，打扰了，想问一下五月四号讲的内容都可以用opencode实现吗"}]},{"question":"只安装 Claude Code 或 opencode 其中一个可以吗？","answer":"可以。已经配置好 Claude Code 的同学，不一定还要再按教程配置 opencode；已经能顺畅使用 opencode 或 Codex 的同学，也可以根据自己的账户和网络情况选择最稳定的工具。\n\n课程里的很多操作和交互原则在 Claude Code、opencode、Codex 之间是相通的。","category":"工具选择","keywords":["Claude Code","opencode","Codex","工具选择"],"frequency":7,"source":"微信群答疑","date":"2026-04-15 ~ 2026-04-20","sourceMessages":[{"time":"2026-04-16 21:21","sender":"学恒Li","text":"claude code / opencode / codex 三者大家选自己使用起来账户情况、网络情况最稳定的就行，尤其上课上的时候，免得中间断掉。我自己平时多使用claude code，因此我上课演示在claude code中进行，也是为"},{"time":"2026-04-16 21:22","sender":"暄","text":"@李学恒 李老师，mac系统怎么配置能够让claude code稳定运行？"},{"time":"2026-04-16 21:23","sender":"暄","text":"我在mac系统安装的claude app可以使用，但是在vscode里面打开claude就连不上"},{"time":"2026-04-18 18:05","sender":"许利枝","text":"我有chatgpt plus，应该用codex就可以吧，opencode、Claude code和codex功能平替吧"},{"time":"2026-04-15 22:39","sender":"暄","text":"@李学恒 李老师，麻烦问下mac系统安装完所有的软件以后，测试运行了都没问题，然后如果下次想重新打开opencode或者claude code是不是从终端再打开，还是说用xcode打开也行？"}]},{"question":"已经有 Codex 会员了，还需要申请 Claude 账号吗？","answer":"如果 Codex 已经可以顺畅使用，可以直接用 Codex。是否再申请 Claude，主要看个人账户、网络和课程跟练需求。\n\n上课演示可能以 Claude Code 为主，但核心操作思路可以迁移到 Codex 和 opencode。","category":"账号付费","keywords":["Codex","Claude","ChatGPT Plus","会员"],"frequency":3,"source":"微信群答疑","date":"2026-04-16 ~ 2026-04-18","sourceMessages":[{"time":"2026-04-16 21:18","sender":"十画的往复","text":"老师，我有codex会员了，还需要申请Claude账号吗？这两个实际差距很大吗？现在Claude太不稳定了。"},{"time":"2026-04-16 21:19","sender":"学恒Li","text":"用codex即可"},{"time":"2026-04-18 18:05","sender":"许利枝","text":"我有chatgpt plus，应该用codex就可以吧，opencode、Claude code和codex功能平替吧"},{"time":"2026-04-18 18:16","sender":"ycc","text":"@李学恒 老师，我一直有个疑问，我已经可以顺畅的使用codex，那么您的安装程序里面，关于open code和Claude的所有安装内容里面，有哪些仍然需要安装吗？还是都不用装了？"},{"time":"2026-04-18 18:17","sender":"学恒Li","text":"可以接其他家，但如果是有openai会员，用codex就行"}]},{"question":"有 Codex 后，安装程序里哪些内容还需要装？","answer":"如果已经能顺畅使用 Codex，可以不安装 opencode。但除 opencode 以外的基础工具仍建议安装，例如 Git、Node.js、Python/Miniconda、pandoc、VS Code 及相关插件。这些工具和文档处理、文件转换、课程练习都有关。","category":"安装配置","keywords":["Codex","opencode","基础工具","Git","Node.js","pandoc"],"frequency":1,"source":"微信群答疑","date":"2026-04-18","sourceMessages":[{"time":"2026-04-18 18:16","sender":"ycc","text":"@李学恒 老师，我一直有个疑问，我已经可以顺畅的使用codex，那么您的安装程序里面，关于open code和Claude的所有安装内容里面，有哪些仍然需要安装吗？还是都不用装了？"},{"time":"2026-04-18 18:17","sender":"学恒Li","text":"可以接其他家，但如果是有openai会员，用codex就行"},{"time":"2026-04-18 18:18","sender":"学恒Li","text":"除了opencode以外的所有其他东西"},{"time":"2026-04-18 18:05","sender":"许利枝","text":"我有chatgpt plus，应该用codex就可以吧，opencode、Claude code和codex功能平替吧"},{"time":"2026-04-18 17:48","sender":"学恒Li","text":"也可以，如果只用codex的话。这里的精神是，不要放到多个地方，多个地方分别有一个版本，这样不利于维护。这里应该遵循只有一份的“唯一真相源”原则"}]},{"question":"opencode 安装了桌面 App，还需要在终端安装吗？","answer":"桌面版和终端/CLI 版不是一回事。课程演示和很多 Skills、Agent 工作流更偏向终端或 VS Code 里的 CLI 使用。\n\n如果只是体验桌面版，可以先用桌面版；如果要跟着课程做完整配置，建议按教程把 CLI 也装好。","category":"工具使用","keywords":["opencode","桌面版","CLI","终端"],"frequency":2,"source":"微信群答疑","date":"2026-04-15","sourceMessages":[{"time":"2026-04-15 22:39","sender":"暄","text":"@李学恒 李老师，麻烦问下mac系统安装完所有的软件以后，测试运行了都没问题，然后如果下次想重新打开opencode或者claude code是不是从终端再打开，还是说用xcode打开也行？"},{"time":"2026-04-15 22:41","sender":"学恒Li","text":"你说的是vscode吧？直播里展示的vscode下方那个模块就是终端，vscode就是把它们都整合到一个界面了"},{"time":"2026-04-15 16:38","sender":"me","text":"老师，opencode安装了app，还要在终端安装吗"},{"time":"2026-04-15 16:55","sender":"芷涵🍓Zhihan","text":"老师，我买过minimax，电脑配置了Claude，还需要安装open code嘛"},{"time":"2026-04-15 16:55","sender":"gcs","text":"老师，为什么我这个安装不成功了"}]},{"question":"运行 opencode-ai 提示不是内部或外部命令，应该输入什么？","answer":"运行命令是 `opencode`，不是 `opencode-ai`。\n\n如果输入 `opencode` 仍然提示找不到命令，说明 CLI 可能没有装好，或者环境变量没有生效，需要回到 PowerShell 里重新执行安装步骤。","category":"安装配置","keywords":["opencode","opencode-ai","命令找不到","CLI"],"frequency":2,"source":"微信群答疑","date":"2026-04-16","sourceMessages":[{"time":"2026-04-16 01:10","sender":"学恒Li","text":"不是opencode-ai"},{"time":"2026-04-16 09:22","sender":"学恒Li","text":"点开windows底下菜单的搜索🔍框，输入Powershell，打开，然后依次输入： npm uninstall -g opencode-ai opencode-windows-x64 opencode-windows-x64-basel"},{"time":"2026-04-16 09:25","sender":"学恒Li","text":"@香雪兰 如果再不行，重新打开powershell，依次输入："},{"time":"2026-04-16 00:44","sender":"香雪兰","text":"到了这一步后，我按安装指引运行opencode-ai显示opencode-ai不是内部或外部命令，也不是可运行的程序或批处理文件。"},{"time":"2026-04-16 01:10","sender":"学恒Li","text":"运行opencode"}]},{"question":"npm install -g opencode-ai 一直转很久，需要等吗？","answer":"正常情况下不应该长时间卡住。可以先断开并重连 Wi-Fi，再重新执行；也可以换网络或检查代理。\n\n如果一直失败，可以按课程里的替代方案，用 PowerShell 执行清理重装命令，或使用 scoop 安装。","category":"安装配置","keywords":["npm","opencode-ai","安装很慢","网络"],"frequency":2,"source":"微信群答疑","date":"2026-04-15 ~ 2026-04-16","sourceMessages":[{"time":"2026-04-16 09:22","sender":"学恒Li","text":"点开windows底下菜单的搜索🔍框，输入Powershell，打开，然后依次输入： npm uninstall -g opencode-ai opencode-windows-x64 opencode-windows-x64-basel"},{"time":"2026-04-16 09:25","sender":"学恒Li","text":"@香雪兰 如果再不行，重新打开powershell，依次输入："},{"time":"2026-04-15 22:35","sender":"香雪兰","text":"请教老师，我在命令提示框中输入npm install -g opencode-ai后，光标一直在转，转了好久，需要很长时间安装吗"},{"time":"2026-04-15 22:37","sender":"学恒Li","text":"opencode创建agent的方式是直接在powershell或者终端中（不是打开opencode之后）输入：opencode agent create"},{"time":"2026-04-16 01:10","sender":"学恒Li","text":"不是opencode-ai"}]},{"question":"opencode 怎么创建 Agent？","answer":"在 PowerShell 或终端里运行 `opencode agent create`。注意不是进入 opencode 之后再输入，而是在普通终端环境里执行。","category":"工具使用","keywords":["opencode","agent","opencode agent create"],"frequency":1,"source":"微信群答疑","date":"2026-04-15","sourceMessages":[{"time":"2026-04-15 22:37","sender":"学恒Li","text":"opencode创建agent的方式是直接在powershell或者终端中（不是打开opencode之后）输入：opencode agent create"},{"time":"2026-04-15 22:39","sender":"暄","text":"@李学恒 李老师，麻烦问下mac系统安装完所有的软件以后，测试运行了都没问题，然后如果下次想重新打开opencode或者claude code是不是从终端再打开，还是说用xcode打开也行？"},{"time":"2026-04-15 17:55","sender":"morningstar","text":"先导课内容包含：1、安装配置Claude Code/Opencode；2、如何选择、安装一些常用skills，并演示一些文件转换skills，实现 pdf、markdown、word 之间的自由切换；3、展示如何创建一个审稿人agent并生"},{"time":"2026-04-15 17:58","sender":"morningstar","text":"@李学恒 李老师，关于配置的材料已经很丰富了，时间宝贵，建议多讲skills和agent[呲牙]"},{"time":"2026-04-15 18:00","sender":"宋芸芸","text":"先导课也可以看回放的吧？🥹"}]},{"question":"Skills 安装好了，但运行 markitdown 仍提示没有安装，怎么办？","answer":"第一次运行相关 Skill 时，可能还需要安装底层依赖。先确认 conda 已安装并激活，例如命令行开头是否有 `(base)`。\n\n如果依赖安装失败，可以让 opencode 自己继续排查并安装。群里案例中重新删除并安装后恢复正常。","category":"工具使用","keywords":["Skills","markitdown","conda","依赖安装"],"frequency":1,"source":"微信群答疑","date":"2026-04-15","sourceMessages":[{"time":"2026-04-15 23:09","sender":"娟儿","text":"李老师，我把skills安装到opencode下了，查看也有文件，但运行markitdown，老是说没有安装，让opencode安装，还是不行，这可能是什么原因？"},{"time":"2026-04-15 23:12","sender":"学恒Li","text":"确实第一次需要安装"},{"time":"2026-04-15 23:12","sender":"学恒Li","text":"conda安装好了吗"},{"time":"2026-04-15 21:43","sender":"榛榛榛果粒","text":"老师请问这里有具体设立agent的md文件嘛？我以为这个是用来安装skills的[发呆]"},{"time":"2026-04-15 21:49","sender":"学恒Li","text":"[文件] 审稿人agent提示词.md"}]},{"question":"粉丝福利 Skills 和安装教程里的 Skills 是同一批吗？","answer":"是同一类常用 Skills。五一正课还会继续讲解并演示一些专门用于论文修改、润色和研究流程的 Skills。","category":"课程资料","keywords":["Skills","粉丝福利","安装教程","论文润色"],"frequency":1,"source":"微信群答疑","date":"2026-04-19","sourceMessages":[{"time":"2026-04-19 15:52","sender":"nati","text":"请问粉丝福利skills和安装教程里面要求安装的skill是同一个吗"},{"time":"2026-04-19 15:52","sender":"nati","text":"我都安装了，发现好像是一样的"},{"time":"2026-04-19 15:52","sender":"学恒Li","text":"对"},{"time":"2026-04-19 15:53","sender":"学恒Li","text":"这是一些常用的skills，五一课上还会讲解、演示一些专门用于修改润色论文的skills"}]},{"question":"如果只用 Codex，能把 Skills 直接安装到 .codex/skills 吗？","answer":"可以。如果只使用 Codex，把 Skills 放到 `.codex/skills` 也可以。关键是保持唯一真相源，不要把同一批 Skills 分别放在多个目录里维护多个版本。","category":"工具使用","keywords":["Codex","Skills",".codex/skills","唯一真相源"],"frequency":2,"source":"微信群答疑","date":"2026-04-18","sourceMessages":[{"time":"2026-04-18 17:43","sender":"许利枝","text":"我们不创造一个软连接，可直接把skills安装到.codex/skills吗"},{"time":"2026-04-18 17:48","sender":"学恒Li","text":"也可以，如果只用codex的话。这里的精神是，不要放到多个地方，多个地方分别有一个版本，这样不利于维护。这里应该遵循只有一份的“唯一真相源”原则"},{"time":"2026-04-18 17:52","sender":"学恒Li","text":"@ycc 就是这里说的"},{"time":"2026-04-18 18:16","sender":"ycc","text":"@李学恒 老师，我一直有个疑问，我已经可以顺畅的使用codex，那么您的安装程序里面，关于open code和Claude的所有安装内容里面，有哪些仍然需要安装吗？还是都不用装了？"},{"time":"2026-04-18 18:17","sender":"学恒Li","text":"可以接其他家，但如果是有openai会员，用codex就行"}]},{"question":"不用 Claude Code 了，可以删除 .claude 文件夹吗？","answer":"如果确定不用 Claude Code，可以删除 `.claude` 文件夹。但如果后面还可能使用 Claude Code，建议先保留，避免误删配置和已有 Agent/Skills 设置。","category":"工具使用","keywords":["Claude Code",".claude","配置文件夹"],"frequency":1,"source":"微信群答疑","date":"2026-04-18","sourceMessages":[{"time":"2026-04-18 18:04","sender":"许利枝","text":"李老师，也就是如果我不用Claude，就可以删除.claude文件夹吗？"},{"time":"2026-04-18 18:05","sender":"许利枝","text":"我有chatgpt plus，应该用codex就可以吧，opencode、Claude code和codex功能平替吧"},{"time":"2026-04-18 18:09","sender":"十画的往复","text":"老师，Claude code 接入不了其他家的模型吗？比如openai的"},{"time":"2026-04-18 18:12","sender":"学恒Li","text":"可以，如果不用claude code"},{"time":"2026-04-18 18:12","sender":"学恒Li","text":"对，可以直接用codex"}]},{"question":"Claude 会员能不能接到 opencode 里共用？","answer":"不建议。Anthropic 之前明确不鼓励在 opencode、OpenClaw 等第三方软件里使用 Claude 会员额度，可能带来封号风险。\n\n如果有 Claude 会员，建议直接使用 Claude Code；如果想在 opencode 里使用 Claude 模型，可以考虑 opencode zen 渠道，按流量计费。","category":"账号付费","keywords":["Claude","opencode","Anthropic","opencode zen","封号风险"],"frequency":2,"source":"微信群答疑","date":"2026-04-16 ~ 2026-04-17","sourceMessages":[{"time":"2026-04-17 19:18","sender":"nati","text":"谢谢！claude是不是老师推荐的那个opencode zen渠道呀，流量收费的？我直接自己买个claude账号可以链接到opencode里面吗"},{"time":"2026-04-17 19:19","sender":"学恒Li","text":"自己买了claude会员就用claude code"},{"time":"2026-04-16 20:01","sender":"学恒Li","text":"要在opencode中使用claude模型可以使用它们的opencode zen渠道购买，按流量计费"},{"time":"2026-04-16 20:08","sender":"学恒Li","text":"opencode zen说明：https://opencode.ai/docs/zen/，开始的时候使用opencode zen也是不错的选择，它同时提供多个模型，国外国内的模型都可以，方便试用不同模型，都是按量计费，适合有选择困难的同学，"},{"time":"2026-04-16 20:00","sender":"学恒Li","text":"claude的公司anthropic之前明确说不让在opencode、openclaw等第三方软件上使用它们的会员额度，可能会导致封号。如果有claude会员可以直接用claude code"}]},{"question":"opencode zen 是什么，适合什么时候用？","answer":"opencode zen 是 opencode 提供的模型渠道，支持多个国内外模型，按量计费。它适合刚开始想试用不同模型、还没决定长期订阅哪一家模型服务的同学。\n\n熟悉后，可以再根据自己的任务和预算订阅固定模型。","category":"账号付费","keywords":["opencode zen","按量计费","模型渠道","Claude"],"frequency":1,"source":"微信群答疑","date":"2026-04-16","sourceMessages":[{"time":"2026-04-16 20:01","sender":"学恒Li","text":"要在opencode中使用claude模型可以使用它们的opencode zen渠道购买，按流量计费"},{"time":"2026-04-16 20:08","sender":"学恒Li","text":"opencode zen说明：https://opencode.ai/docs/zen/，开始的时候使用opencode zen也是不错的选择，它同时提供多个模型，国外国内的模型都可以，方便试用不同模型，都是按量计费，适合有选择困难的同学，"},{"time":"2026-04-16 21:16","sender":"暄","text":"@李学恒 李老师，我们正式上课的时候主要是用opencode操作吗？claude code不稳定，经常就登陆不进去"},{"time":"2026-04-16 21:18","sender":"十画的往复","text":"老师，我有codex会员了，还需要申请Claude账号吗？这两个实际差距很大吗？现在Claude太不稳定了。"},{"time":"2026-04-16 20:00","sender":"学恒Li","text":"claude的公司anthropic之前明确说不让在opencode、openclaw等第三方软件上使用它们的会员额度，可能会导致封号。如果有claude会员可以直接用claude code"}]},{"question":"国内模型推荐哪个？海外模型推荐哪个？","answer":"国内模型可以优先试 Kimi 和智谱。海外模型里，Claude 在大部分场景里比较可靠，但订阅可能需要国外银行卡，也可能遇到封号或稳定性问题。\n\n最终还是要看账户、网络和具体任务，选择自己最稳定的一套。","category":"模型选择","keywords":["Kimi","智谱","Claude","模型推荐"],"frequency":2,"source":"微信群答疑","date":"2026-04-16","sourceMessages":[{"time":"2026-04-16 21:16","sender":"暄","text":"@李学恒 李老师，我们正式上课的时候主要是用opencode操作吗？claude code不稳定，经常就登陆不进去"},{"time":"2026-04-16 21:18","sender":"十画的往复","text":"老师，我有codex会员了，还需要申请Claude账号吗？这两个实际差距很大吗？现在Claude太不稳定了。"},{"time":"2026-04-16 21:19","sender":"学恒Li","text":"用codex即可"},{"time":"2026-04-16 21:22","sender":"暄","text":"@李学恒 李老师，mac系统怎么配置能够让claude code稳定运行？"},{"time":"2026-04-16 21:23","sender":"暄","text":"我在mac系统安装的claude app可以使用，但是在vscode里面打开claude就连不上"}]},{"question":"在 VS Code 里使用 Codex/Claude 的 Extensions 和终端 CLI 有区别吗？","answer":"官方层面差别不大，近期插件版功能也逐渐跟上了。实际使用中，CLI 版执行文件操作、调用 Skills、处理复杂项目会更稳一些；插件版更方便嵌在编辑器界面里。\n\n如果插件版不稳定，可以直接在 VS Code 终端里使用 CLI。","category":"工具使用","keywords":["VS Code","Extensions","CLI","Codex","Claude Code"],"frequency":2,"source":"微信群答疑","date":"2026-04-16 ~ 2026-04-17","sourceMessages":[{"time":"2026-04-16 10:38","sender":"Papillon","text":"老师，我想请教下 VS Code 里 codex/Claude 的Extensions和终端有区别吗"},{"time":"2026-04-16 10:41","sender":"gcs","text":"我就是按照这个视频把权限打开了的"},{"time":"2026-04-16 20:26","sender":"Johnson","text":"老师好，我是今天才购买课程的学员。今天看了你的直播回放，我想问问在国外使用苹果电脑的Claude code用户，是不是就按照这个检查清单安装基础工具以及VS Code 插件（第四部分）就可以了呢 我的电脑是学校配置的工作电脑，不太容易安装o"},{"time":"2026-04-16 20:29","sender":"学恒Li","text":"对的，那claude code也用brew install --cask claude-code安装上，python已经在miniconda中了"},{"time":"2026-04-16 21:21","sender":"学恒Li","text":"claude code / opencode / codex 三者大家选自己使用起来账户情况、网络情况最稳定的就行，尤其上课上的时候，免得中间断掉。我自己平时多使用claude code，因此我上课演示在claude code中进行，也是为"}]},{"question":"VS Code 里打开 Claude 连不上，但 Claude App 可以用，怎么办？","answer":"可以在 `~/.claude/settings.json` 里配置代理。先在代理软件中找到服务端口号，再让 Claude Code 或其他 AI 帮你修改 `HTTPS_PROXY` 和 `HTTP_PROXY`。\n\n配置后重新打开一个终端，输入 `claude` 测试。","category":"安装配置","keywords":["Claude Code","VS Code","代理","settings.json","HTTP_PROXY"],"frequency":2,"source":"微信群答疑","date":"2026-04-16","sourceMessages":[{"time":"2026-04-16 21:27","sender":"学恒Li","text":"在 ~/.claude/settings.json 这个文件中设置代理，你现在你的代理软件中找到服务的端口号，然后告诉claude code，让它去修改~/.claude/settings.json 中的HTTPS_PROXY 和 HTTP"},{"time":"2026-04-16 21:32","sender":"学恒Li","text":"完成后，回去新开一个终端，输入claude，测试一下"},{"time":"2026-04-16 20:26","sender":"Johnson","text":"老师好，我是今天才购买课程的学员。今天看了你的直播回放，我想问问在国外使用苹果电脑的Claude code用户，是不是就按照这个检查清单安装基础工具以及VS Code 插件（第四部分）就可以了呢 我的电脑是学校配置的工作电脑，不太容易安装o"},{"time":"2026-04-16 20:29","sender":"学恒Li","text":"对的，那claude code也用brew install --cask claude-code安装上，python已经在miniconda中了"},{"time":"2026-04-16 21:16","sender":"暄","text":"@李学恒 李老师，我们正式上课的时候主要是用opencode操作吗？claude code不稳定，经常就登陆不进去"}]},{"question":"Claude 或相关工具连接不上，科学上网怎么设置？","answer":"不确定具体模式时，可以先尝试全局模式和 TUN 模式。Windows 上还要按教程设置系统代理环境变量。\n\n不同地区节点稳定性不一样，群里也有人反馈美国节点更稳定。遇到问题时，把错误信息复制给 AI，让它结合本机配置排查。","category":"网络代理","keywords":["Claude","科学上网","全局模式","TUN","系统代理"],"frequency":5,"source":"微信群答疑","date":"2026-04-15 ~ 2026-04-20","sourceMessages":[{"time":"2026-04-17 21:37","sender":"学恒Li","text":"无需科学上网安装 claude code 并接入kimi模型教程：这是第一步"},{"time":"2026-04-17 21:37","sender":"学恒Li","text":"无需科学上网安装 claude code 并接入kimi模型教程：第二步"},{"time":"2026-04-17 21:37","sender":"学恒Li","text":"无需科学上网安装 claude code 并接入kimi模型教程：第三步。具体复制粘贴的代码看这里：https://www.kimi.com/code/docs/more/third-party-agents.html"},{"time":"2026-04-17 21:39","sender":"学恒Li","text":"cc没有内置根据配置文件自己切换外部模型的功能，但可以通过skill或mcp的方式直接调用codex或opencode，或直接用写一个api请求调用其他模型"},{"time":"2026-04-15 19:42","sender":"曹慧娟","text":"李学恒老师发的资料 可以再发一下吗？claude code 安装指南"}]},{"question":"用国内模型时需要开代理吗？","answer":"不一定。使用国内模型时，有时反而是开了代理连不上。遇到 Kimi、智谱等国内模型连接问题，可以先尝试关闭代理，再重新运行。","category":"网络代理","keywords":["国内模型","Kimi","智谱","代理","梯子"],"frequency":2,"source":"微信群答疑","date":"2026-04-17","sourceMessages":[{"time":"2026-04-17 20:53","sender":"榛榛榛果粒","text":"老师您好，我在使用kimi模型的时候即使是最简单的让他概括文献内容都会显示invalid request error的报错，跟AI问了之后还是没有找到合适的解决方案，不知道是哪里出了问题，您见得多，能知道这是哪里有问题吗？[玫瑰]"},{"time":"2026-04-17 20:57","sender":"学恒Li","text":"你试试分两步，先让它不要直接读pdf、先转成markdown，再让它取读markdown"},{"time":"2026-04-17 21:03","sender":"Mauchance","text":"kimi coding plan支持opencode吗？"},{"time":"2026-04-17 18:16","sender":"学恒Li","text":"@Lily 按照这个教程里面一样设置系统代理环境变量了吗？"},{"time":"2026-04-17 22:36","sender":"学恒Li","text":"用国内模型的时候有时候是反的，开了梯子有时就连不上"}]},{"question":"Kimi Coding Plan 支持 opencode 吗？","answer":"支持。群里反馈老师和不少同学都在 opencode 里使用 Kimi Coding Plan，除了有时比较慢，一般可以正常使用。\n\n如果遇到 invalid request error，可以先换模型、重启网络、重新打开工具，或改用 Claude Code 接入 Kimi 的方案排查。","category":"模型选择","keywords":["Kimi Coding Plan","opencode","invalid request error","模型切换"],"frequency":3,"source":"微信群答疑","date":"2026-04-17 ~ 2026-04-21","sourceMessages":[{"time":"2026-04-17 21:03","sender":"Mauchance","text":"kimi coding plan支持opencode吗？"},{"time":"2026-04-17 21:20","sender":"学恒Li","text":"我和很多身边老师都有在opencode里用kimi coding plan，除了有时觉比较慢外，没发现什么问题"},{"time":"2026-04-17 21:22","sender":"学恒Li","text":"我觉得，有可能你过一阵重新打开，或者试试wifi断了重新打开，说不定就好了"},{"time":"2026-04-17 21:00","sender":"学恒Li","text":"kimi coding plan买的是什么套餐，你登录kimi后台看看会不会是每段时间用量的额度到了"},{"time":"2026-04-17 20:53","sender":"榛榛榛果粒","text":"老师您好，我在使用kimi模型的时候即使是最简单的让他概括文献内容都会显示invalid request error的报错，跟AI问了之后还是没有找到合适的解决方案，不知道是哪里出了问题，您见得多，能知道这是哪里有问题吗？[玫瑰]"}]},{"question":"Kimi 模型出现 invalid request error，怎么排查？","answer":"这个错误不一定是 API key 过期或版本过低，也可能是客户端 Build 流程和当前模型存在兼容问题。\n\n可以先换一个更稳定的模型，进入目标文件夹后再启动 opencode，用简单指令测试，不要一开始就走 Build。如果简单指令可以运行，问题大概率在模型调用或工作区联动上。","category":"模型选择","keywords":["Kimi","invalid request error","API key","Build","opencode"],"frequency":3,"source":"微信群答疑","date":"2026-04-17","sourceMessages":[{"time":"2026-04-17 20:53","sender":"榛榛榛果粒","text":"老师您好，我在使用kimi模型的时候即使是最简单的让他概括文献内容都会显示invalid request error的报错，跟AI问了之后还是没有找到合适的解决方案，不知道是哪里出了问题，您见得多，能知道这是哪里有问题吗？[玫瑰]"},{"time":"2026-04-17 20:57","sender":"学恒Li","text":"你试试分两步，先让它不要直接读pdf、先转成markdown，再让它取读markdown"},{"time":"2026-04-17 21:07","sender":"榛榛榛果粒","text":"这里面是有安装到vscode的选项，我在vscode里也下载了kimi的插件，而且我之前用这个模型让他处理过一些任务没有报过类似错误，但是最近就一直报invalid request error的错误[流泪]"},{"time":"2026-04-17 21:08","sender":"学恒Li","text":"有安装claude code不"},{"time":"2026-04-17 21:03","sender":"Mauchance","text":"kimi coding plan支持opencode吗？"}]},{"question":"Kimi 每隔几小时会有额度限制吗？","answer":"Kimi 可能存在时间窗口内的额度限制。可以登录 Kimi 后台查看当前套餐和使用量；如果界面有红色提示，可能是额度用完。\n\n如果没有看到超限提示，也可以等一段时间、重启工具或换模型测试。","category":"账号付费","keywords":["Kimi","额度","Coding Plan","套餐"],"frequency":2,"source":"微信群答疑","date":"2026-04-17","sourceMessages":[{"time":"2026-04-17 21:00","sender":"学恒Li","text":"kimi coding plan买的是什么套餐，你登录kimi后台看看会不会是每段时间用量的额度到了"},{"time":"2026-04-17 21:03","sender":"Mauchance","text":"kimi coding plan支持opencode吗？"},{"time":"2026-04-17 21:20","sender":"学恒Li","text":"我和很多身边老师都有在opencode里用kimi coding plan，除了有时觉比较慢外，没发现什么问题"},{"time":"2026-04-17 21:22","sender":"学恒Li","text":"我觉得，有可能你过一阵重新打开，或者试试wifi断了重新打开，说不定就好了"},{"time":"2026-04-17 20:53","sender":"榛榛榛果粒","text":"老师您好，我在使用kimi模型的时候即使是最简单的让他概括文献内容都会显示invalid request error的报错，跟AI问了之后还是没有找到合适的解决方案，不知道是哪里出了问题，您见得多，能知道这是哪里有问题吗？[玫瑰]"}]},{"question":"Kimi 新模型上线后，Coding Plan 能自动调用吗？需要重新生成 API 吗？","answer":"一般可以到后台查看模型列表，模型更新后通常会在后台体现。是否需要重新生成 API，要以后台显示为准；正常情况下不一定需要重新生成。","category":"模型选择","keywords":["Kimi","新模型","Coding Plan","API"],"frequency":1,"source":"微信群答疑","date":"2026-04-21","sourceMessages":[{"time":"2026-04-21 11:01","sender":"赵妍","text":"老师 前几天充值的kimi的coding plan，这种新模型上线的话就能自动调用的对吧？不需要再重新生成api的吧？"},{"time":"2026-04-21 11:02","sender":"学恒Li","text":"可以到后台看看，应该是会更新的"},{"time":"2026-04-21 11:03","sender":"","text":"老师好 您建议本地大模型部署连 cc 吗，比如 30b 的或者更高 是不是可以省买 max token 的钱"}]},{"question":"Claude Code 能接入其他家的模型吗，比如 OpenAI？","answer":"Claude Code 本身没有内置根据配置文件自动切换外部模型的功能。可以通过 Skill、MCP 或自己写 API 请求去调用其他模型。\n\n如果已经有 OpenAI/ChatGPT 会员，直接用 Codex 往往更简单。","category":"模型选择","keywords":["Claude Code","OpenAI","Codex","MCP","模型切换"],"frequency":2,"source":"微信群答疑","date":"2026-04-17 ~ 2026-04-18","sourceMessages":[{"time":"2026-04-18 18:09","sender":"十画的往复","text":"老师，Claude code 接入不了其他家的模型吗？比如openai的"},{"time":"2026-04-18 18:05","sender":"许利枝","text":"我有chatgpt plus，应该用codex就可以吧，opencode、Claude code和codex功能平替吧"},{"time":"2026-04-17 19:19","sender":"学恒Li","text":"自己买了claude会员就用claude code"},{"time":"2026-04-17 19:24","sender":"学恒Li","text":"可以接着做别的事情，或者打开一个新窗口安排别的任务，不用坐着等它"},{"time":"2026-04-17 21:08","sender":"学恒Li","text":"有安装claude code不"}]},{"question":"能不能在 CLAUDE.md 里配置多个模型，让 Claude Code 自动切换？","answer":"Claude Code 没有内置这种自动切换外部模型的机制。可以通过 Skill、MCP 或 API 请求调用其他模型，但不是简单写进 CLAUDE.md 就会自动切换。","category":"模型选择","keywords":["CLAUDE.md","Claude Code","模型切换","MCP","Skill"],"frequency":1,"source":"微信群答疑","date":"2026-04-17","sourceMessages":[{"time":"2026-04-17 21:35","sender":"Mauchance","text":"这个是可以写入项目流程的CLAUDE.md里来实现的吗？我配置好多个模型，让他自动切换模型？"},{"time":"2026-04-17 21:35","sender":"Mauchance","text":"我看CC Switch软件可以切换不同模型"},{"time":"2026-04-17 19:19","sender":"学恒Li","text":"自己买了claude会员就用claude code"},{"time":"2026-04-17 19:24","sender":"学恒Li","text":"可以接着做别的事情，或者打开一个新窗口安排别的任务，不用坐着等它"},{"time":"2026-04-17 21:08","sender":"学恒Li","text":"有安装claude code不"}]},{"question":"opencode 在 VS Code 终端里输出很慢，是 VS Code 的问题还是模型/网络问题？","answer":"更可能是模型或网络问题。GLM 等模型有时响应较慢，可以换 Kimi、Claude 或其他更快的模型测试。\n\n运行慢时不必一直等，可以开新窗口安排其他任务，或者先做别的事情。","category":"工具使用","keywords":["opencode","VS Code","GLM","响应慢","模型速度"],"frequency":1,"source":"微信群答疑","date":"2026-04-17","sourceMessages":[{"time":"2026-04-17 19:05","sender":"nati","text":"请问，在vscode的终端里用opencode，给出指令后输出结果非常慢，是vscode的问题还是模型的问题（用的GLM-5.1），还是本身网络的问题？"},{"time":"2026-04-17 19:09","sender":"星空","text":"windows系统，这个也安装过了，是最新的，但还是无法滑动页面 在Powershell里就没问题"},{"time":"2026-04-17 17:41","sender":"许利枝","text":"@助教-陈云菲 在vscode中出现的错误，opencode的桌面版可以，why？"},{"time":"2026-04-17 17:47","sender":"c奕辛","text":"我问了AI 可能是VSCode 里 OpenCode 的那段配置"},{"time":"2026-04-17 18:47","sender":"许利枝","text":"vscode中运行opencode问题"}]},{"question":"在 VS Code 终端里用 opencode，页面不能滚动怎么办？","answer":"Windows 上可以先安装 Windows Terminal。如果在 VS Code 终端里仍无法滚动，而普通 PowerShell 里没问题，可以先改用 PowerShell 或 Windows Terminal，后续再排查 VS Code 终端设置。","category":"工具使用","keywords":["VS Code","opencode","终端滚动","Windows Terminal"],"frequency":1,"source":"微信群答疑","date":"2026-04-17","sourceMessages":[{"time":"2026-04-17 19:05","sender":"nati","text":"请问，在vscode的终端里用opencode，给出指令后输出结果非常慢，是vscode的问题还是模型的问题（用的GLM-5.1），还是本身网络的问题？"},{"time":"2026-04-17 19:09","sender":"星空","text":"windows系统，这个也安装过了，是最新的，但还是无法滑动页面 在Powershell里就没问题"},{"time":"2026-04-17 17:41","sender":"许利枝","text":"@助教-陈云菲 在vscode中出现的错误，opencode的桌面版可以，why？"},{"time":"2026-04-17 18:59","sender":"星空","text":"老师，请问在vscode的终端里用opencode，opencode页面不能滑动是为什么，就是没法滑动去看opencode前面的输出内容了"},{"time":"2026-04-17 19:02","sender":"学恒Li","text":"啥电脑系统呢？windows的话安装一下windows terminal：https://apps.microsoft.com/detail/9n0dx20hk701?hl=zh-CN&gl=CN"}]},{"question":"打开 D 盘文件夹后 opencode 自动退出，只能手动复制路径吗？","answer":"这不一定是 opencode 的普遍 bug，更可能和本机设置或操作方式有关。可以让 AI 逐项排查 VS Code 打开文件夹、工作区路径、终端路径和 opencode 启动方式。\n\n临时方案是进入目标文件夹路径后再启动 opencode，或新建窗口测试。","category":"工具使用","keywords":["opencode","VS Code","打开文件夹","工作区路径","D 盘"],"frequency":2,"source":"微信群答疑","date":"2026-04-16 ~ 2026-04-17","sourceMessages":[{"time":"2026-04-16 10:11","sender":"榛榛榛果粒","text":"老师我发现不能同时打开opencode和文件夹（非opencode所在路径），比如我电脑上opencode装在C盘，但是我打开了D盘中文件夹想发论文给他时，opencode自动退出了，这种情况下是不是只能手动复制粘贴文件路径？但是感觉有点麻"},{"time":"2026-04-16 15:01","sender":"榛榛榛果粒","text":"老师我发现不能同时打开opencode和文件夹（非opencode所在路径），比如我电脑上opencode装在C盘，但是我打开了D盘中文件夹想发论文给他时，opencode自动退出了，这种情况下是不是只能手动复制粘贴文件路径？但是感觉有点麻"},{"time":"2026-04-16 15:03","sender":"学恒Li","text":"你是不是用的opencode桌面app"},{"time":"2026-04-16 15:05","sender":"学恒Li","text":"就是不是在powershell里面打开？"},{"time":"2026-04-16 15:16","sender":"学恒Li","text":"你是在vscode里面‘打开文件夹’直接打开了某个D盘的文件夹？"}]},{"question":"PDF 转成 Markdown 后看起来像渲染页面，怎么查看源文件？","answer":"如果 Markdown 已经正常打开并渲染了格式，可以点击右上角的小铅笔图标查看源文件。Word 能正常打开，Markdown 也能渲染，通常说明转换已经成功。","category":"文件处理","keywords":["PDF","Markdown","Word","源文件","渲染"],"frequency":1,"source":"微信群答疑","date":"2026-04-16","sourceMessages":[{"time":"2026-04-16 20:42","sender":"陈鹏程","text":"李老师，我把一个PDF转换成md，结果是这样，但同时有一个word出来，word能正常打开，但md不行，这是怎么回事，谢谢"},{"time":"2026-04-16 20:59","sender":"学恒Li","text":"你这个已经正常打开了，并帮你渲染了格式，你可以点一下右上角的小铅笔图标，查看源文件"}]},{"question":"先导课有回放吗？在哪里看？","answer":"有回放。回放会传到播放器，上传好后会在群里通知。也可以通过腾讯会议录制链接申请观看，申请时记得备注名字。","category":"课程安排","keywords":["先导课","回放","播放器","腾讯会议"],"frequency":10,"source":"微信群答疑","date":"2026-04-15 ~ 2026-04-21","sourceMessages":[{"time":"2026-04-15 17:02","sender":"qq","text":"先导课有回放吗？今天晚上不一定有时间看"},{"time":"2026-04-15 17:02","sender":"王老师（连享会）","text":"有的"},{"time":"2026-04-15 14:20","sender":"鹿其","text":"老师。请问今晚的先导课有回放吗"},{"time":"2026-04-15 14:35","sender":"妍","text":"老师，我这里选择第一个呢？跟说明书的不太一样。@ @Tina"},{"time":"2026-04-15 18:43","sender":"水中仙","text":"请问先导课有回放吗"}]},{"question":"晚上先导课几点直播、用什么软件看？","answer":"先导课在 4 月 15 日晚上 7 点半开始。观看渠道和播放器安装说明会在群里发布，新报名学员也可以查看群文件里的安装说明。","category":"课程安排","keywords":["先导课","直播时间","播放器","听课软件"],"frequency":3,"source":"微信群答疑","date":"2026-04-15","sourceMessages":[{"time":"2026-04-15 17:02","sender":"qq","text":"先导课有回放吗？今天晚上不一定有时间看"},{"time":"2026-04-15 17:02","sender":"王老师（连享会）","text":"有的"},{"time":"2026-04-15 18:00","sender":"宋芸芸","text":"先导课也可以看回放的吧？🥹"},{"time":"2026-04-15 17:55","sender":"Amber","text":"请问用什么软件看课程呀"},{"time":"2026-04-15 17:55","sender":"morningstar","text":"先导课内容包含：1、安装配置Claude Code/Opencode；2、如何选择、安装一些常用skills，并演示一些文件转换skills，实现 pdf、markdown、word 之间的自由切换；3、展示如何创建一个审稿人agent并生"}]},{"question":"播放器看不了回放，提示录屏或外接显示器怎么办？","answer":"播放器可能会检测截图、录屏或外接显示设备。Mac 上需要按播放器说明关闭相关程序或权限；如果外接显示器不行，建议用平板观看。\n\n如果播放器仍看不了，可以通过腾讯会议录制链接申请观看。","category":"课程安排","keywords":["播放器","回放","录屏检测","外接显示器","腾讯会议"],"frequency":4,"source":"微信群答疑","date":"2026-04-16","sourceMessages":[{"time":"2026-04-16 11:26","sender":"李晓燕","text":"播放器如果看不了先导课的视频的，可以通过腾讯会议链接申请观看"},{"time":"2026-04-16 17:04","sender":"李松松","text":"五一班上课要用mac播放器下载么，还是腾讯会议"},{"time":"2026-04-16 17:06","sender":"李松松","text":"回放权限可以帮忙审批下嘛"},{"time":"2026-04-16 09:12","sender":"Nia","text":"请问昨晚的回放，在哪里可以查看？"},{"time":"2026-04-16 09:13","sender":"学恒Li","text":"等等 @李晓燕 老师通知"}]},{"question":"审稿人 Agent 的 md 文件在哪里？","answer":"群里已分享 `审稿人agent提示词.md`。如果想让 CC/Codex 后续都能调用这类 Agent，课程后面会讲具体配置方式，先导课最后也有简短演示。","category":"课程资料","keywords":["审稿人 Agent","md 文件","提示词","Codex","Claude Code"],"frequency":2,"source":"微信群答疑","date":"2026-04-15 ~ 2026-04-20","sourceMessages":[{"time":"2026-04-15 17:55","sender":"morningstar","text":"先导课内容包含：1、安装配置Claude Code/Opencode；2、如何选择、安装一些常用skills，并演示一些文件转换skills，实现 pdf、markdown、word 之间的自由切换；3、展示如何创建一个审稿人agent并生"},{"time":"2026-04-15 17:58","sender":"morningstar","text":"@李学恒 李老师，关于配置的材料已经很丰富了，时间宝贵，建议多讲skills和agent[呲牙]"},{"time":"2026-04-15 18:00","sender":"宋芸芸","text":"先导课也可以看回放的吧？🥹"},{"time":"2026-04-15 21:38","sender":"榛榛榛果粒","text":"老师请问可以分享一下今天讲到的审稿人agents的md文件吗"},{"time":"2026-04-15 21:42","sender":"鹿其","text":"老师，请问什么时候可以分享录屏"}]},{"question":"课程正式上课时主要用 opencode 还是 Claude Code？","answer":"老师平时多使用 Claude Code，课程演示会以 Claude Code 为主，主要是为了直播流畅。但 Claude Code、opencode、Codex 的大部分操作原则相通。\n\n上课时大家选择自己账户和网络最稳定的工具即可，避免中途断掉。","category":"课程安排","keywords":["正式课","opencode","Claude Code","Codex","演示工具"],"frequency":3,"source":"微信群答疑","date":"2026-04-16 ~ 2026-04-20","sourceMessages":[{"time":"2026-04-16 21:21","sender":"学恒Li","text":"claude code / opencode / codex 三者大家选自己使用起来账户情况、网络情况最稳定的就行，尤其上课上的时候，免得中间断掉。我自己平时多使用claude code，因此我上课演示在claude code中进行，也是为"},{"time":"2026-04-16 21:22","sender":"暄","text":"@李学恒 李老师，mac系统怎么配置能够让claude code稳定运行？"},{"time":"2026-04-16 21:23","sender":"暄","text":"我在mac系统安装的claude app可以使用，但是在vscode里面打开claude就连不上"},{"time":"2026-04-18 18:05","sender":"许利枝","text":"我有chatgpt plus，应该用codex就可以吧，opencode、Claude code和codex功能平替吧"},{"time":"2026-04-16 21:16","sender":"暄","text":"@李学恒 李老师，我们正式上课的时候主要是用opencode操作吗？claude code不稳定，经常就登陆不进去"}]},{"question":"五月四号的内容都可以用 opencode 实现吗？","answer":"可以。不同工具之间如果效果有差异，主要通常不是 opencode 和 Claude Code 的差异，而是背后使用的模型不同导致的差异。","category":"课程安排","keywords":["五一课程","opencode","Claude Code","模型差异"],"frequency":1,"source":"微信群答疑","date":"2026-04-20","sourceMessages":[{"time":"2026-04-20 21:22","sender":"学恒Li","text":"如果同一套提示词和skills效果有差异，那主要也不是opencode和claude code之间的差异，而是使用了不同模型造成的差异"},{"time":"2026-04-20 22:01","sender":"shirly海燕","text":"老师，求助。安装GIT，最后出现这种情况，是咋回事？"},{"time":"2026-04-20 21:21","sender":"刘泽霄","text":"老师好，打扰了，想问一下五月四号讲的内容都可以用opencode实现吗"},{"time":"2026-04-20 21:21","sender":"学恒Li","text":"可以"},{"time":"2026-04-20 22:03","sender":"王老师（连享会）","text":"[链接] 从Opencode到VS Code到Skills：一次配齐整套AI生产力工具"}]},{"question":"国外使用苹果电脑，只装 Claude Code、VS Code 插件和基础工具会影响课程吗？","answer":"可以按检查清单安装基础工具和 VS Code 插件，再用 `brew install --cask claude-code` 安装 Claude Code。Python 已经在 Miniconda 中，学校电脑不方便安装 opencode 时，可以先用 Claude Code 跟课。","category":"安装配置","keywords":["Mac","国外网络","Claude Code","VS Code","Miniconda"],"frequency":1,"source":"微信群答疑","date":"2026-04-16","sourceMessages":[{"time":"2026-04-16 20:26","sender":"Johnson","text":"老师好，我是今天才购买课程的学员。今天看了你的直播回放，我想问问在国外使用苹果电脑的Claude code用户，是不是就按照这个检查清单安装基础工具以及VS Code 插件（第四部分）就可以了呢 我的电脑是学校配置的工作电脑，不太容易安装o"},{"time":"2026-04-16 20:29","sender":"学恒Li","text":"对的，那claude code也用brew install --cask claude-code安装上，python已经在miniconda中了"},{"time":"2026-04-16 21:22","sender":"暄","text":"@李学恒 李老师，mac系统怎么配置能够让claude code稳定运行？"},{"time":"2026-04-16 21:23","sender":"暄","text":"我在mac系统安装的claude app可以使用，但是在vscode里面打开claude就连不上"},{"time":"2026-04-16 21:16","sender":"暄","text":"@李学恒 李老师，我们正式上课的时候主要是用opencode操作吗？claude code不稳定，经常就登陆不进去"}]},{"question":"Anaconda 已经装了，还需要安装 Miniconda 吗？","answer":"如果电脑里已经有 Anaconda，一般不用再装 Miniconda。两者功能有重叠，后续重点是保证 Python/conda 环境可用。","category":"安装配置","keywords":["Anaconda","Miniconda","Python","conda"],"frequency":1,"source":"微信群答疑","date":"2026-04-17","sourceMessages":[{"time":"2026-04-17 15:58","sender":"天使之曦","text":"麻烦问下，电脑里有Anaconda的话，是不是教程里Miniconda那一步不用装，其他都一样。@李学恒"},{"time":"2026-04-17 16:09","sender":"Rena","text":"anaconda prompt和power shell功能好像一样，是不是用anaconda prompt也行？"},{"time":"2026-04-17 16:18","sender":"李晓燕","text":"新报名的老师可以下载这个压缩包查看之前发的文件"},{"time":"2026-04-17 16:26","sender":"李晓燕","text":"功能有重叠，老师，有一步在power shell执行的时候会显示环境变量有问题的报错的时候，在anaconda prompt可以解决，anaconda prompt可以 @Rena 自动激活 base 环境"}]},{"question":"Anaconda Prompt 和 PowerShell 功能一样吗？可以用 Anaconda Prompt 吗？","answer":"功能有重叠。某些在 PowerShell 里因为环境变量出错的步骤，可以在 Anaconda Prompt 里解决，因为它会自动激活 base 环境。","category":"安装配置","keywords":["Anaconda Prompt","PowerShell","base 环境","环境变量"],"frequency":1,"source":"微信群答疑","date":"2026-04-17","sourceMessages":[{"time":"2026-04-17 16:26","sender":"李晓燕","text":"功能有重叠，老师，有一步在power shell执行的时候会显示环境变量有问题的报错的时候，在anaconda prompt可以解决，anaconda prompt可以 @Rena 自动激活 base 环境"},{"time":"2026-04-17 16:09","sender":"Rena","text":"anaconda prompt和power shell功能好像一样，是不是用anaconda prompt也行？"},{"time":"2026-04-17 16:18","sender":"李晓燕","text":"新报名的老师可以下载这个压缩包查看之前发的文件"},{"time":"2026-04-17 18:42","sender":"学恒Li","text":"那vscode里打开powershell呢？这个可以的话就不需要用插件版了"},{"time":"2026-04-17 18:43","sender":"学恒Li","text":"我都不用插件版"}]},{"question":"Git 安装后版本号和教程不一样，比如 windows.2 或 windows.3，是安装失败吗？","answer":"不是。小版本不同没关系，显示更新的小版本反而说明安装的是更新版本。能正常显示 `git version` 就说明安装成功。","category":"安装配置","keywords":["Git","版本号","windows.2","windows.3","安装成功"],"frequency":2,"source":"微信群答疑","date":"2026-04-16","sourceMessages":[{"time":"2026-04-16 17:22","sender":"蒲公英","text":"老师，安装GIT，验证，显示这个，不是git version 2.53.0.windows.1，安装成功了吗？"},{"time":"2026-04-16 17:23","sender":"蒲公英","text":"最后面显示的是windows.3"},{"time":"2026-04-16 17:39","sender":"学恒Li","text":"小版本不同而已，没关系的，都是成功安装好了"},{"time":"2026-04-16 17:35","sender":"陈鹏程","text":"为啥我最后面显示的是windows.2"},{"time":"2026-04-16 17:39","sender":"学恒Li","text":"这个3讲明你的是更新的版本，教程里是两个月前最新的版本"}]},{"question":"想单独买一台笔记本配置 opencode，有什么推荐配置？","answer":"优先内存大一点，建议 32GB 以上。模型不是在本地跑的，所以 CPU/GPU 性能不是最关键；内存大可以让多个窗口和工具同时运行时更不卡。\n\n注意内存和硬盘容量不是一回事。","category":"硬件配置","keywords":["笔记本","opencode","内存","32GB","硬件配置"],"frequency":1,"source":"微信群答疑","date":"2026-04-21","sourceMessages":[{"time":"2026-04-21 10:43","sender":"在水一芳（微信无声，急事电话）","text":"请问老师，想单独买个笔记本配置open code，有什么推荐配置呢？"},{"time":"2026-04-21 10:47","sender":"学恒Li","text":"最好内存大一点（内存32g以上），这样窗口打开多了也不卡。其他的没啥，模型不是在本地跑的，对电脑本身的性能没有高要求"},{"time":"2026-04-21 10:49","sender":"学恒Li","text":"注意内存和硬盘容量是两个东西[呲牙]"}]},{"question":"本地部署 30B 或更高模型接 Claude Code，能省 token 钱吗？","answer":"不太现实。30B 量化模型本身可能就要占 20GB 左右显存，而科研任务常需要 64K 以上上下文，输入上下文还会额外占显存。\n\n真正生产力场景里，30B 本地模型和主流云端强模型差距仍然明显。本地模型适合角色扮演或简单结构化任务，想替代高强度科研写作和代码工作成本很高。","category":"模型选择","keywords":["本地模型","30B","显存","Claude Code","token"],"frequency":1,"source":"微信群答疑","date":"2026-04-21","sourceMessages":[{"time":"2026-04-21 11:10","sender":"学恒Li","text":"本地模型是在放在显存里跑的，30b的残血版（量化压缩版本）应该占20显存了，然后要跑我们平时科研相关的任务上下文输入得有64k以上，这些上下文在输入的时候是另外占显存了，这个也占几十g显存以上。可以去查查一张80g显存的显卡多少钱"},{"time":"2026-04-21 11:12","sender":"学恒Li","text":"而且30b的模型真要生产力的时候还是差太远了，做做角色扮演或者处理一些把非结构化数据转化成结构化数据的小任务是可以的"},{"time":"2026-04-21 10:43","sender":"在水一芳（微信无声，急事电话）","text":"请问老师，想单独买个笔记本配置open code，有什么推荐配置呢？"},{"time":"2026-04-21 10:47","sender":"学恒Li","text":"最好内存大一点（内存32g以上），这样窗口打开多了也不卡。其他的没啥，模型不是在本地跑的，对电脑本身的性能没有高要求"},{"time":"2026-04-21 10:49","sender":"学恒Li","text":"注意内存和硬盘容量是两个东西[呲牙]"}]}]};
+let faqs = [];
+let meta = {};
+let currentCategory = '全部';
+let aiLastQuestion = '';
+let _isComposing = false;
+
+const categoryColors = {
+  '安装配置': 'bg-blue-100 text-blue-800',
+  '工具使用': 'bg-green-100 text-green-800',
+  '课程安排': 'bg-purple-100 text-purple-800',
+  '账号付费': 'bg-red-100 text-red-800',
+  '模型选择': 'bg-orange-100 text-orange-800',
+  '课程资料': 'bg-cyan-100 text-cyan-800',
+  '其他': 'bg-gray-100 text-gray-800',
+  '未分类': 'bg-gray-100 text-gray-800'
+};
+
+const _markedRenderer = new marked.Renderer();
+_markedRenderer.link = ({href, text}) => {
+  return `<a href="${href}" class="text-indigo-600 font-medium hover:underline" target="_blank">${text}</a>`;
+};
+marked.setOptions({ renderer: _markedRenderer, breaks: true, gfm: true });
+
+function normalize(value) {
+  return String(value || '').toLowerCase().trim();
+}
+
+function escapeHtml(text) {
+  return String(text ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
+function answerToHtml(answer) {
+  return String(answer || '')
+    .split(/\n{2,}/)
+    .map(part => `<p>${escapeHtml(part).replaceAll('\n', '<br>')}</p>`)
+    .join('');
+}
+
+function getItemId(item, index) {
+  return item.id || `Q${String(index + 1).padStart(3, '0')}`;
+}
+
+function getCategoryCounts() {
+  const counts = new Map();
+  faqs.forEach(item => {
+    const category = item.category || '未分类';
+    counts.set(category, (counts.get(category) || 0) + 1);
+  });
+  return [...counts.entries()].sort((a, b) => b[1] - a[1]);
+}
+
+function renderHeader() {
+  document.getElementById('pageTitle').textContent = meta.title || '连享会26五一论文班 常见问题';
+  document.getElementById('pageSubtitle').textContent = '基于群聊天记录及先导课提取';
+  document.getElementById('totalCount').textContent = faqs.length;
+  document.title = meta.title || '连享会 2026 五一论文班 FAQ';
+  document.getElementById('footerText').textContent =
+    `${meta.subtitle || '数据来源：微信群聊天记录'} | 共 ${faqs.length} 条 FAQ`;
+}
+
+function renderCategoryFilters() {
+  const filters = [['全部', faqs.length], ...getCategoryCounts()];
+  document.getElementById('categoryFilters').innerHTML = filters.map(([name, count]) => {
+    const active = name === currentCategory;
+    const cls = active
+      ? 'filter-btn active px-3 py-1.5 rounded-full text-sm font-medium bg-gray-900 text-white'
+      : 'filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200';
+    const countHtml = name === '全部' ? '' : ` <span class="text-gray-400">(${count})</span>`;
+    return `<button class="${cls}" data-cat="${escapeHtml(name)}" onclick="filterCategory('${escapeHtml(name)}')">${escapeHtml(name)}${countHtml}</button>`;
+  }).join('');
+}
+
+function renderList() {
+  document.getElementById('qaList').innerHTML = faqs.map((item, index) => {
+    const id = getItemId(item, index);
+    const category = item.category || '未分类';
+    const categoryClass = categoryColors[category] || categoryColors['其他'];
+    const keywords = Array.isArray(item.keywords) ? item.keywords : [];
+    const hot = Number(item.frequency || 0) > 1
+      ? `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">被问${escapeHtml(item.frequency)}次</span>`
+      : '';
+    const keywordText = keywords.join(' ');
+    return `
+      <div class="qa-item border border-gray-200 rounded-lg mb-3 overflow-hidden hover:shadow-md transition-shadow bg-white"
+           id="qa-${escapeHtml(id)}"
+           data-category="${escapeHtml(category)}"
+           data-question="${escapeHtml(normalize(item.question))}"
+           data-keywords="${escapeHtml(normalize(keywordText))}"
+           data-answer="${escapeHtml(normalize(item.answer))}"
+           data-frequency="${escapeHtml(item.frequency || 1)}">
+        <button class="w-full px-5 py-4 text-left flex items-start gap-3 hover:bg-gray-50 transition-colors qa-toggle" onclick="toggleAnswer(this)">
+          <span class="text-gray-400 font-mono text-sm mt-0.5 shrink-0">${escapeHtml(id)}</span>
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-2 mb-1">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${categoryClass}">${escapeHtml(category)}</span>
+              ${hot}
+            </div>
+            <h3 class="text-base font-medium text-gray-900 leading-snug">${escapeHtml(item.question)}</h3>
+          </div>
+          <svg class="w-5 h-5 text-gray-400 shrink-0 mt-1 transform transition-transform qa-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div class="qa-answer hidden px-5 pb-4 pl-16">
+          <div class="prose prose-sm max-w-none text-gray-700 leading-relaxed">${answerToHtml(item.answer)}</div>
+          <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-400">
+            ${item.source ? `<span>来源: ${escapeHtml(item.source)}</span><span>&middot;</span>` : ''}
+            ${item.date ? `<span>${escapeHtml(item.date)}</span>` : ''}
+          </div>
+          <div class="mt-2 flex flex-wrap gap-1">
+            ${keywords.map(word => `<span class="inline-block px-1.5 py-0.5 text-xs bg-gray-50 text-gray-500 rounded">${escapeHtml(word)}</span>`).join(' ')}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleAnswer(btn) {
+  const answer = btn.nextElementSibling;
+  const chevron = btn.querySelector('.qa-chevron');
+  answer.classList.toggle('hidden');
+  chevron.classList.toggle('open');
+}
+
+function filterCategory(cat) {
+  currentCategory = cat;
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.cat === cat);
+  });
+  filterItems();
+}
+
+function filterItems() {
+  const query = normalize(document.getElementById('searchInput').value);
+  const items = document.querySelectorAll('.qa-item');
+  let visible = 0;
+
+  items.forEach(item => {
+    const matchCat = currentCategory === '全部' || item.dataset.category === currentCategory;
+    let matchSearch = true;
+    if (query) {
+      matchSearch = item.dataset.question.includes(query) ||
+                    item.dataset.keywords.includes(query) ||
+                    item.dataset.answer.includes(query);
+    }
+    if (matchCat && matchSearch) {
+      item.style.display = '';
+      visible++;
+    } else {
+      item.style.display = 'none';
+    }
+  });
+
+  document.getElementById('noResults').classList.toggle('hidden', visible > 0);
+}
+
+function renderMarkdown(text) {
+  text = String(text || '').replace(/\[Q(\d+)\]/g, (_, n) => {
+    const id = `Q${String(Number(n)).padStart(3, '0')}`;
+    return `<a href="javascript:void(0)" class="text-indigo-600 font-medium hover:underline" onclick="expandSource('${id}')">[${id}]</a>`;
+  });
+  return marked.parse(text);
+}
+
+function expandSource(qaId) {
+  const sourceList = document.getElementById('aiSourceList');
+  if (sourceList) {
+    const source = sourceList.querySelector(`[data-source-id="${qaId}"]`);
+    if (source) {
+      const body = source.querySelector('.source-body');
+      const chevron = source.querySelector('.source-chevron');
+      if (body && body.classList.contains('hidden')) {
+        body.classList.remove('hidden');
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+      }
+      source.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      source.style.transition = 'background-color 0.3s';
+      source.style.backgroundColor = '#EEF2FF';
+      setTimeout(() => { source.style.backgroundColor = ''; }, 1500);
+      return;
+    }
+  }
+  scrollToQA(qaId);
+}
+
+function scrollToQA(qaId) {
+  const el = document.getElementById('qa-' + qaId);
+  if (!el) return;
+  el.scrollIntoView({behavior: 'smooth', block: 'center'});
+  const answer = el.querySelector('.qa-answer');
+  const chevron = el.querySelector('.qa-chevron');
+  if (answer && answer.classList.contains('hidden')) {
+    answer.classList.remove('hidden');
+    chevron && chevron.classList.add('open');
+  }
+  el.style.transition = 'background-color 0.3s';
+  el.style.backgroundColor = '#FEF3C7';
+  setTimeout(() => { el.style.backgroundColor = ''; }, 2000);
+}
+
+function scoreFAQ(item, query) {
+  const terms = normalize(query).split(/\s+/).filter(Boolean);
+  const haystacks = [
+    [item.question, 5],
+    [(item.keywords || []).join(' '), 4],
+    [item.answer, 2],
+    [item.category, 1]
+  ];
+  return terms.reduce((total, term) => {
+    return total + haystacks.reduce((sum, [text, weight]) => {
+      return sum + (normalize(text).includes(term) ? weight : 0);
+    }, 0);
+  }, 0);
+}
+
+async function askAI() {
+  const input = document.getElementById('aiInput');
+  const question = input.value.trim();
+  if (!question) return;
+
+  aiLastQuestion = question;
+  document.getElementById('aiResponse').classList.remove('hidden');
+  document.getElementById('aiLoading').classList.add('hidden');
+  document.getElementById('aiAnswer').classList.remove('hidden');
+  document.getElementById('aiError').classList.add('hidden');
+
+  const matches = faqs
+    .map((item, index) => ({...item, id: getItemId(item, index), score: scoreFAQ(item, question)}))
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5);
+
+  const answerText = matches.length
+    ? `这是 GitHub Pages 静态版，无法直接调用本地 AI 后端。我先按问题、答案和关键词检索到 ${matches.length} 条相关 FAQ，建议优先查看：\n\n${matches.map(item => `- [${item.id}] ${item.question}`).join('\n')}`
+    : '这是 GitHub Pages 静态版，无法直接调用本地 AI 后端。当前 FAQ 中没有检索到明显相关的问题，请换个关键词再试。';
+
+  document.getElementById('aiAnswerText').innerHTML = renderMarkdown(answerText);
+
+  const sourceList = document.getElementById('aiSourceList');
+  sourceList.innerHTML = '';
+  matches.forEach(item => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'bg-white rounded border border-indigo-100 overflow-hidden text-xs';
+    wrapper.dataset.sourceId = item.id;
+    const header = document.createElement('div');
+    header.className = 'flex items-center gap-2 px-3 py-2 cursor-pointer hover:bg-indigo-50 transition-colors';
+    header.innerHTML = `<span class="font-mono text-indigo-600 shrink-0">${escapeHtml(item.id)}</span><span class="text-gray-700 flex-1">${escapeHtml(item.question)}</span><span class="text-gray-400 shrink-0">相关</span><svg class="w-4 h-4 text-gray-400 shrink-0 transition-transform source-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>`;
+    const body = document.createElement('div');
+    body.className = 'source-body hidden px-3 pb-3 pt-1 border-t border-indigo-50 text-gray-600 leading-relaxed whitespace-pre-line';
+    body.textContent = item.answer || '';
+    header.onclick = () => {
+      body.classList.toggle('hidden');
+      header.querySelector('.source-chevron').style.transform = body.classList.contains('hidden') ? '' : 'rotate(180deg)';
+    };
+    wrapper.appendChild(header);
+    wrapper.appendChild(body);
+    sourceList.appendChild(wrapper);
+  });
+  document.getElementById('aiSources').classList.toggle('hidden', matches.length === 0);
+}
+
+function closeAIAnswer() {
+  document.getElementById('aiResponse').classList.add('hidden');
+}
+
+async function loadData() {
+  meta = STATIC_FAQ_DATA.meta || {};
+  faqs = STATIC_FAQ_DATA.faqs || [];
+  renderHeader();
+  renderCategoryFilters();
+  renderList();
+}
+
+const _aiInput = document.getElementById('aiInput');
+_aiInput.addEventListener('compositionstart', () => { _isComposing = true; });
+_aiInput.addEventListener('compositionend', () => { _isComposing = false; });
+_aiInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !_isComposing && !e.isComposing) askAI();
+});
+
+loadData().catch(error => {
+  document.getElementById('pageSubtitle').textContent = error.message;
+});
+</script>
+
+</body>
+</html>
